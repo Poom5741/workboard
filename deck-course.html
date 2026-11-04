@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Coding for PM — Teaching Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF8F4; --ink:#1A1917; --muted:#6E6A63; --line:#D8D3C8;
+    --accent:#0B7A55; --accent-ink:#085A3F; --chip:#EDF5F0; --code:#F0EEE8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%;background:#262421;overflow:hidden;font-family:'IBM Plex Sans Thai',sans-serif}
+  #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  #deck{width:1920px;height:1080px;background:var(--paper);color:var(--ink);position:relative;transform-origin:center center;box-shadow:0 20px 80px rgba(0,0,0,.5)}
+  .slide{position:absolute;inset:0;padding:110px 130px;display:none;flex-direction:column}
+  .slide.active{display:flex}
+  .kicker{font-size:26px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:28px}
+  h1{font-size:110px;line-height:1.12;font-weight:700;letter-spacing:-.02em}
+  h2{font-size:72px;line-height:1.15;font-weight:700;letter-spacing:-.015em;margin-bottom:40px}
+  .lead{font-size:38px;line-height:1.55;color:var(--muted);max-width:1250px}
+  .en{font-weight:600;color:var(--ink)}
+  .mono{font-family:'IBM Plex Mono',monospace;font-size:.92em;background:var(--code);padding:2px 12px;border-radius:6px;white-space:nowrap}
+  .footer{position:absolute;bottom:44px;left:130px;right:130px;display:flex;justify-content:space-between;font-size:22px;color:var(--muted);border-top:1px solid var(--line);padding-top:22px}
+  .biglist{display:flex;flex-direction:column;gap:34px;margin-top:16px}
+  .row{display:flex;gap:36px;align-items:baseline;font-size:40px;line-height:1.4}
+  .num{font-family:'IBM Plex Mono',monospace;font-size:30px;color:var(--accent);min-width:70px;font-weight:500}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:10px;align-items:start}
+  .card{border:1px solid var(--line);border-radius:14px;padding:44px 48px;background:#fff}
+  .card h3{font-size:32px;margin-bottom:22px;color:var(--accent-ink)}
+  .card li{font-size:29px;line-height:1.55;margin-bottom:14px;margin-left:34px;color:var(--ink)}
+  .cmdline{font-family:'IBM Plex Mono',monospace;font-size:33px;background:#12211B;color:#D7F0E3;padding:36px 44px;border-radius:12px;line-height:1.8}
+  .cmdline .p{color:#7FB89D}
+  .loop{display:flex;align-items:center;gap:0;margin-top:70px}
+  .loop .step{flex:1;text-align:center;padding:46px 20px;border:1px solid var(--line);background:#fff;border-radius:16px;font-size:40px;font-weight:600}
+  .loop .step small{display:block;font-size:26px;font-weight:400;color:var(--muted);margin-top:14px}
+  .loop .arrow{font-size:56px;padding:0 34px;color:var(--accent);font-weight:700}
+  .quote{font-size:52px;line-height:1.45;font-weight:600;max-width:1500px;margin-top:30px}
+  .quote em{color:var(--accent);font-style:normal}
+  .tiny{font-size:26px;color:var(--muted);margin-top:34px}
+  #hud{position:fixed;bottom:18px;right:26px;color:#8F8A80;font-family:'IBM Plex Mono',monospace;font-size:14px;z-index:10;user-select:none}
+  @media print{
+    html,body{overflow:visible;background:#fff}
+    #stage{position:static}
+    #deck{width:auto;height:auto;box-shadow:none}
+    .slide{position:relative;display:flex !important;page-break-after:always;width:1920px;height:1080px}
+    #hud{display:none}
+  }
+</style>
+</head>
+<body>
+<div id="stage"><div id="deck">
+
+  <!-- 1 · Title -->
+  <section class="slide" id="s1">
+    <div style="margin:auto 0">
+      <div class="kicker">WORKSHOP · 4 HOURS · LIVE</div>
+      <h1>Vibe Coding<br>for PM</h1>
+      <p class="lead" style="margin-top:44px">จากไอเดีย → <span class="en">working CRM</span> ที่ deploy ขึ้น internet จริง<br>โดยที่คุณไม่ต้องเขียนโค้ดเองสักบรรทัด</p>
+      <p class="tiny">ห้ามพลาด: วันนี้ทุกคนจะได้ URL ของตัวเอง</p>
+    </div>
+  </section>
+
+  <!-- 2 · The loop -->
+  <section class="slide" id="s2">
+    <div class="kicker">WHAT IS VIBE CODING</div>
+    <h2>วงจรเดียวที่ต้องจำ</h2>
+    <div class="loop">
+      <div class="step">บอก<small>เขียนสิ่งที่อยากได้ ให้ชัด</small></div>
+      <div class="arrow">→</div>
+      <div class="step">ให้ AI ลงมือ<small>agent เขียนโค้ดแทนคุณ</small></div>
+      <div class="arrow">→</div>
+      <div class="step">ตรวจ<small>เทียบกับสิ่งที่ขอไว้</small></div>
+    </div>
+    <p class="lead" style="margin-top:70px">งานของ PM ในวงจรนี้ คือ <span class="en">ขั้นแรก</span> กับ <span class="en">ขั้นสุดท้าย</span> — ไม่ใช่ตัวกลาง<br>นั่นคือเหตุผลที่ PM เรียนอะไรนี้ได้เร็วกว่า dev หลายคน</p>
+  </section>
+
+  <!-- 3 · The rule -->
+  <section class="slide" id="s3">
+    <div class="kicker">กฎข้อเดียวของวันนี้</div>
+    <p class="quote">"<em>The card is the contract.</em>"<br>การ์ดที่คุณเขียน คือสัญญา — AI ต้องทำตาม<br>และคุณต้องตรวจรับเหมือน UAT ทุกครั้ง</p>
+    <p class="lead" style="margin-top:60px">ถ้าการ์ดกำกวม → AI เดา → ผลลัพธ์พัง แล้วคุณโทษ AI<br>ถ้าการ์ดชัด → ผลลัพธ์คือของจริง</p>
+  </section>
+
+  <!-- 4 · Ch1 card anatomy -->
+  <section class="slide" id="s4">
+    <div class="kicker">CH1 · 0:25 – 1:05</div>
+    <h2>เขียนการ์ดแบบที่ dev เขาเรียกว่า "ใช้ได้"</h2>
+    <div class="cols">
+      <div class="card">
+        <h3>โครงการ์ด (English template)</h3>
+        <ul>
+          <li><span class="en">User story</span> — As a &lt;who&gt;, I want &lt;what&gt;, so that &lt;why&gt;</li>
+          <li><span class="en">Acceptance criteria</span> — 3 ข้อ เช็คได้ สังเกตได้</li>
+          <li><span class="en">Out of scope</span> — วันนี้ยังไม่ทำอะไร</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>เกมทดสอบ: Grilling</h3>
+        <ul>
+          <li>จับคู่ โจมตีการ์ดของกันและกัน</li>
+          <li>ถ้า dev ต้องถามกลับ = การ์ดยังไม่เสร็จ</li>
+          <li>เป้าหมายวันนี้: การ์ด 2 ใบ ใน repo จริง</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · Ch2 speckit -->
+  <section class="slide" id="s5">
+    <div class="kicker">CH2 · 1:05 – 1:50</div>
+    <h2>จากการ์ด → โปรแกรม ด้วย Spec Kit</h2>
+    <p class="lead" style="margin-bottom:44px">ทีมจริงใน industry เขาทำ <span class="en">spec-driven development</span> — วันนี้คุณได้ลองแบบที่ dev เขาทำกันจริง</p>
+    <div class="cmdline">
+      <span class="p">$</span> speckit-tasks&nbsp;&nbsp;<span style="color:#7FB89D"># แผนงานแยกเป็น step ที่เช็คได้</span><br>
+      <span class="p">$</span> speckit-implement&nbsp;&nbsp;<span style="color:#7FB89D"># ให้ agent ลงมือทำทีละ step</span>
+    </div>
+    <p class="lead" style="margin-top:44px">สิ่งที่คุณทำ: ดู agent ทำ → เทียบกับ <span class="en">3 acceptance criteria</span> ในการ์ด<br>ไม่ตรง = ไม่รับ ส่งกลับเข้าการ์ด ไม่ใช่แกะโค้ดเอง</p>
+  </section>
+
+  <!-- 6 · Correction loop -->
+  <section class="slide" id="s6">
+    <div class="kicker">ทักษะที่เอากลับไปใช้จริง</div>
+    <h2>Correction loop — เมื่อ AI ทำผิด</h2>
+    <div class="biglist">
+      <div class="row"><span class="num">01</span><span>ระบุว่า <span class="en">อะไร</span> ไม่ตรงกับ <span class="en">ข้อไหน</span> ในการ์ด (ไม่ใช่ "มันพัง")</span></div>
+      <div class="row"><span class="num">02</span><span>สั่งกลับด้วยข้อความที่อ้าง acceptance criteria ข้อนั้น</span></div>
+      <div class="row"><span class="num">03</span><span>ตรวจใหม่ — loop นี้คืองานประจำวันของ PM ยุคใหม่</span></div>
+    </div>
+    <p class="tiny">เชื่อไหมว่ามาถึงตรงนี้ คุณกำลังทำสิ่งเดียวกับที่ทำกับ dev ในทีมอยู่แล้ว — แค่ dev คนนี้ตอบเร็วกว่า</p>
+  </section>
+
+  <!-- 7 · Deploy -->
+  <section class="slide" id="s7">
+    <div class="kicker">CH4 · 2:45 – 3:25</div>
+    <h2>Dashboard + Deploy</h2>
+    <div class="loop" style="margin-top:30px">
+      <div class="step">CRM เสร็จ<small>leads · pipeline · dashboard</small></div>
+      <div class="arrow">→</div>
+      <div class="step">Deploy<small>ขึ้น Cloudflare จริง</small></div>
+      <div class="arrow">→</div>
+      <div class="step">URL ของคุณ<small>เปิดจากมือถือได้</small></div>
+    </div>
+    <p class="tiny" style="margin-top:60px">ใช้ข้อมูลปลอมเท่านั้น — ห้ามใส่ข้อมูลลูกค้าจริงในเวอร์ชันสาธิต (เรื่องนี้อยู่ในสไลด์ "อย่า delegate อะไร")</p>
+  </section>
+
+  <!-- 8 · Workflow map -->
+  <section class="slide" id="s8">
+    <div class="kicker">CH5 · 3:25 – 4:00</div>
+    <h2>แผนที่ workflow — มองให้เห็นทั้งภาพ</h2>
+    <div class="cols">
+      <div>
+        <div class="biglist">
+          <div class="row"><span class="num">a</span><span><span class="en">Planning</span> — การ์ดที่ชัด คือ requirement</span></div>
+          <div class="row"><span class="num">b</span><span><span class="en">Spec Kit</span> — เครื่องมือ ไม่ใช่กระบวนการทั้งหมด</span></div>
+          <div class="row"><span class="num">c</span><span><span class="en">Tests</span> — หลักฐานว่าทำตามการ์ดจริง</span></div>
+          <div class="row"><span class="num">d</span><span><span class="en">Browser QA</span> — ตรวจเหมือน user ใช้จริง</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>อย่า delegate สิ่งเหล่านี้ (ยัง)</h3>
+        <ul>
+          <li>ข้อมูลลูกค้าจริง / ข้อมูลส่วนบุคคล</li>
+          <li>ระบบการเงิน การชำระเงิน</li>
+          <li>การตัดสินใจที่ผิดแล้วแก้ยาก</li>
+          <li>Security &amp; compliance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 · Monday morning -->
+  <section class="slide" id="s9">
+    <div class="kicker">ก่อนกลับ</div>
+    <h2>เป้าหมายวันจันทร์</h2>
+    <p class="quote">เขียน <em>การ์ดแรกของงานคุณเอง</em> — 10 นาที<br>งานจริง ที่ต้องส่งจริง สัปดาห์นี้</p>
+    <p class="lead" style="margin-top:60px">พร้อม template การ์ด + prompt patterns ที่ใช้วันนี้ (อยู่ใน Whop ของคุณแล้ว)<br>สงสัยอะไร ถาม AI ตัวที่อยู่ข้างคุณได้ตลอด — มันคือ TA ของห้องนี้</p>
+  </section>
+
+  <div class="footer" id="foot" style="display:none"><span>Vibe Coding for PM</span><span id="footN"></span></div>
+</div></div>
+<div id="hud">← → · 1/9</div>
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const hud=document.getElementById('hud');
+  let i=parseInt(localStorage.getItem('vcpm-slide')||'0');
+  if(!(i>=0&&i<slides.length))i=0;
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    hud.textContent='← → · '+(i+1)+'/'+slides.length;
+    localStorage.setItem('vcpm-slide',i);
+  }
+  addEventListener('keydown',e=>{
+    if(['ArrowRight','PageDown',' '].includes(e.key)){show(i+1);e.preventDefault()}
+    if(['ArrowLeft','PageUp'].includes(e.key)){show(i-1);e.preventDefault()}
+    if(e.key==='Home')show(0); if(e.key==='End')show(slides.length-1);
+  });
+  addEventListener('click',e=>{ if(e.target.closest('a'))return; show(i+1); });
+  function fit(){
+    const s=Math.min(innerWidth/1920,innerHeight/1080);
+    document.getElementById('deck').style.transform='scale('+s+')';
+  }
+  addEventListener('resize',fit);fit();show(i);
+</script>
+</body>
+</html>

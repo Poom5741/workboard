@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hermes Workboard — ทุกอย่างที่ Hermes สร้าง</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;600;700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FAF8F4;--ink:#1A1917;--muted:#6E6A63;--line:#D8D3C8;--accent:#0B7A55;--accent-ink:#085A3F}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans Thai',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+.wrap{max-width:960px;margin:0 auto;padding:48px 24px}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+h1{font-size:38px;letter-spacing:-.015em;margin-bottom:10px}
+.lead{font-size:18px;color:var(--muted);margin-bottom:36px}
+h2{font-size:22px;margin:40px 0 16px;padding-top:24px;border-top:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+a.cell{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;text-decoration:none;color:var(--ink);display:block}
+a.cell:hover{border-color:var(--accent)}
+a.cell .t{font-weight:700;font-size:17px}
+a.cell .d{font-size:14px;color:var(--muted);margin-top:6px}
+a.cell .tag{display:inline-block;font-size:12px;font-family:monospace;background:var(--accent);color:#fff;border-radius:6px;padding:2px 10px;margin-bottom:8px}
+.note{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:16px 20px;font-size:15px;margin-top:10px}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">HERMES · WORKBOARD · อัปเดต 3 พ.ย. 2026</div>
+  <h1>ทุกอย่างที่ Hermes สร้าง — เปิดดูได้เลย</h1>
+  <p class="lead">ไม่ต้องอ่านในแชทแล้ว — ทุก artifact เป็นหน้าเว็บที่เปิดในเบราว์เซอร์ / มือถือได้ทันที</p>
+
+  <h2>🎤 Watcation — เตรียม pitch TED Fund (พรุ่งนี้ 10:00)</h2>
+  <div class="grid">
+    <a class="cell" href="deck-watcation-tagcloud.html">
+      <span class="tag">PITCH · สไลด์ถามทุน</span>
+      <div class="t">AI Buzzword Tag Cloud</div>
+      <div class="d">สไลด์ปิดท้าย 22 คำ AI tech ที่ใช้จริง — กด ← → ไม่ต้อง ใช้คลิก/สกรอลล์ดูได้ · receipt: E2E 4/4 · evals 17/17 · guardrail 10/10</div>
+    </a>
+    <div class="cell">
+      <span class="tag" style="background:#6E6A63">สรุปพูดปากเปล่า</span>
+      <div class="t">Platform vision slide</div>
+      <div class="d">"Watcation คือ vertical แรก — ไม่ใช่เส้นชัย" + sovereign inference line (อยู่ใน discussion notes — ดูลิงก์ด้านล่าง)</div>
+    </div>
+  </div>
+
+  <h2>📚 คอร์ส Vibe Coding for PM</h2>
+  <div class="grid">
+    <a class="cell" href="deck-course.html">
+      <span class="tag">DECK · 9 SLIDES</span>
+      <div class="t">Teaching Deck (ไทย)</div>
+      <div class="d">สไลด์สอน live on-site — กด → เพื่อเลื่อนสไลด์ · ปรินต์ได้</div>
+    </a>
+    <a class="cell" href="lessons/index.html">
+      <span class="tag">SITE · 6 LESSONS</span>
+      <div class="t">Lesson Site (interactive)</div>
+      <div class="d">บทเรียนทบทวน + quiz เช็คตัวเอง + checklist จำได้ข้าม session (localStorage)</div>
+    </a>
+  </div>
+
+  <h2>📝 โน้ตประชุม / เอกสารประกอบ (repo ส่วนตัว)</h2>
+  <div class="note">
+    <strong>notes/2026-11-03-pitch-discussion.md</strong> — สรุปทุกอย่างที่คุยวันนี้: เคส GoPro, การตัดสินใจ pitch, vision "Palantir ไทย", sovereign AI line, สคริปต์พูด tag cloud, gap ที่ต้องเคลียร์ (budget ฿150k, ทีม 2 vs 3 คน) — อยู่ใน repo <span class="mono">vibe-coding-for-pm</span> (private) สำหรับประชุมพรุ่งนี้
+  </div>
+
+  <h2>🔗 Repo ทั้งหมด</h2>
+  <div class="grid">
+    <a class="cell" href="https://github.com/Poom5741/vibe-coding-for-pm">
+      <div class="t">vibe-coding-for-pm</div>
+      <div class="d">คอร์ส + curriculum + wiki + exercises + app (private)</div>
+    </a>
+    <a class="cell" href="https://github.com/Poom5741/watcation">
+      <div class="t">watcation</div>
+      <div class="d">POC จริง: A2A agents + RAG KB วัด 5 วัด (private)</div>
+    </a>
+    <a class="cell" href="https://github.com/Poom5741/workboard">
+      <div class="t">workboard (repo นี้)</div>
+      <div class="d">หน้ารวมที่คุณกำลังดูอยู่ (public)</div>
+    </a>
+  </div>
+
+  <footer>Hermes · สร้างอัตโนมัติจากงานจริง · ขอเพิ่ม/แก้อะไรพิมพ์มาในแชท</footer>
+</div>
+</body>
+</html>

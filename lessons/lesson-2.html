@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Execute การ์ดด้วย Spec Kit — Vibe Coding for PM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="index.html">← หน้าหลัก</a><span>Vibe Coding for PM · Lesson 2</span></div>
+<div class="kicker">LESSON 2 / 5</div>
+
+<h1>Lesson 2 — Execute การ์ดด้วย Spec Kit</h1>
+<p class="lead">Real teams run spec-driven development. วันนี้คุณคือ dev.</p>
+
+<h2>คำสั่งที่ใช้ (ZCode — ขึ้นต้นด้วย $ ไม่ใช่ /)</h2>
+<div class="cmd"><span class="p">$</span> speckit-tasks&nbsp;&nbsp;<span style="color:#7FB89D"># spec → รายการงานที่เช็คได้</span><br><span class="p">$</span> speckit-implement&nbsp;&nbsp;<span style="color:#7FB89D"># ทำทีละงาน รายงานผล</span></div>
+<p>$speckit-specify / $speckit-plan ผู้สอน pre-run ให้แล้ว — ดูตัวอย่างจริงที่ <span class="mono">app/specs/001-leaddesk/</span></p>
+
+<h2>หัวใจ: verify ก่อนเชื่อ</h2>
+<ol>
+<li>Agent บอก "เสร็จแล้ว" — งานคุณเพิ่งเริ่ม</li>
+<li>เปิด <span class="mono">localhost:8787</span> เช็คทีละ acceptance criteria</li>
+<li>ไม่ผ่านข้อไหน → สั่งกลับโดย <strong>อ้างข้อ criteria นั้น</strong> ไม่ใช่ "มันพัง"</li>
+</ol>
+
+<h2>Check</h2>
+<div class="card"><strong>Agent บอกว่า implement เสร็จแล้ว คุณควรทำอะไรก่อน</strong><div class="quiz" data-key="l2-q1"><div style="margin:12px 0"><button data-correct="0" data-good="ถูก — หน้าจอของคุณคือ receipt ไม่ใช่คำพูด agent (และไม่ใช่โค้ด คุณไม่จำเป็นต้องอ่านทุกบรรทัดวันนี้)" data-bad="ผิด — "agent บอกว่าเสร็จ" ไม่ใช่ receipt">0</button><button data-correct="1" data-good="ถูก — หน้าจอของคุณคือ receipt ไม่ใช่คำพูด agent (และไม่ใช่โค้ด คุณไม่จำเป็นต้องอ่านทุกบรรทัดวันนี้)" data-bad="ผิด — "agent บอกว่าเสร็จ" ไม่ใช่ receipt">1</button><button data-correct="0" data-good="ถูก — หน้าจอของคุณคือ receipt ไม่ใช่คำพูด agent (และไม่ใช่โค้ด คุณไม่จำเป็นต้องอ่านทุกบรรทัดวันนี้)" data-bad="ผิด — "agent บอกว่าเสร็จ" ไม่ใช่ receipt">2</button></div><div class="feedback"></div></div></div>
+
+<footer>Vibe Coding for PM · ใช้ข้อมูลปลอมเสมอ · ถามได้ทุกเมื่อ — AI ในห้องนี้คือ TA ของคุณ <span class="noprint">· <a href="index.html">บทเรียนอื่น</a></span></footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

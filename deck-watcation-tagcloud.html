@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>AI Buzzwords — Watcation Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#FAF8F4;--ink:#1A1917;--muted:#6E6A63;--accent:#0B7A55;--accent-ink:#085A3F;--line:#D8D3C8}
+  *{margin:0;box-sizing:border-box}
+  html,body{height:100%;background:#262421;overflow:hidden;font-family:'IBM Plex Sans Thai',sans-serif}
+  #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  #deck{width:1920px;height:1080px;background:var(--paper);position:relative;transform-origin:center;box-shadow:0 20px 80px rgba(0,0,0,.5)}
+  .kicker{position:absolute;top:70px;left:110px;font-size:24px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  .headline{position:absolute;top:112px;left:110px;font-size:64px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+  .headline em{font-style:normal;color:var(--accent)}
+  .sub{position:absolute;top:196px;left:110px;font-size:30px;color:var(--muted);max-width:1500px}
+  .cloud{position:absolute;top:270px;left:60px;width:1800px;height:620px}
+  .w{position:absolute;font-weight:600;white-space:nowrap;color:var(--ink);opacity:.92}
+  .w.g{color:var(--accent-ink)}
+  .w.rot{transform:rotate(-4deg)} .w.rot2{transform:rotate(3deg)}
+  .receipt{position:absolute;bottom:150px;left:110px;font-size:29px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 30px}
+  .receipt b{color:var(--accent-ink)}
+  .ask{position:absolute;bottom:64px;left:110px;font-size:26px;color:var(--muted)}
+  .ask b{color:var(--ink)}
+</style>
+</head>
+<body>
+<div id="stage"><div id="deck">
+  <div class="kicker">THE TECH WE ALREADY SHIPPED</div>
+  <div class="headline">ทุกคำนี้คือ <em>AI buzzword</em> — ที่เราใช้จริงแล้วใน POC</div>
+  <div class="sub">ถ้าคุณอยากรู้ว่าคำไหนทำงานยังไง — ถามผมได้ทุกคำ หรือให้ทุนผม แล้วผมจะอธิบายให้ฟังทุกตัว</div>
+
+  <div class="cloud">
+    <!-- biggest = core of what shipped -->
+    <span class="w g" style="top:30px;left:430px;font-size:96px;transform:rotate(-3deg)">Agent-to-Agent</span>
+    <span class="w g" style="top:160px;left:160px;font-size:78px">RAG</span>
+    <span class="w g" style="top:150px;left:640px;font-size:80px;transform:rotate(2deg)">Knowledge Base</span>
+    <span class="w g" style="top:140px;left:1240px;font-size:72px;transform:rotate(-2deg)">Guardrail</span>
+    <span class="w" style="top:280px;left:80px;font-size:56px;transform:rotate(3deg)">Evals</span>
+    <span class="w" style="top:300px;left:420px;font-size:58px">Function Calling</span>
+    <span class="w" style="top:262px;left:900px;font-size:60px;transform:rotate(-3deg)">Prompt Engineering</span>
+    <span class="w" style="top:296px;left:1420px;font-size:52px">Structured Output</span>
+    <span class="w rot2" style="top:410px;left:140px;font-size:48px">Semantic Search</span>
+    <span class="w" style="top:400px;left:560px;font-size:54px">LLM Inference</span>
+    <span class="w rot" style="top:396px;left:1010px;font-size:50px">Vector Search</span>
+    <span class="w" style="top:420px;left:1400px;font-size:46px;transform:rotate(2deg)">Open-weight Model</span>
+    <span class="w rot2" style="top:530px;left:110px;font-size:44px">Multi-lingual Agents</span>
+    <span class="w" style="top:528px;left:520px;font-size:46px">MCP</span>
+    <span class="w rot" style="top:524px;left:680px;font-size:42px">Hallucination Guard</span>
+    <span class="w" style="top:536px;left:1030px;font-size:44px">E2E Testing</span>
+    <span class="w rot2" style="top:520px;left:1330px;font-size:42px">Thai NLP</span>
+    <span class="w" style="top:430px;left:1660px;font-size:40px;transform:rotate(-4deg)">Workers AI</span>
+    <span class="w rot" style="top:620px;left:260px;font-size:38px">Context Window</span>
+    <span class="w" style="top:622px;left:700px;font-size:36px">Streaming</span>
+    <span class="w rot2" style="top:616px;left:950px;font-size:38px">Cloudflare Workers</span>
+    <span class="w" style="top:620px;left:1420px;font-size:38px;transform:rotate(3deg)">Sovereign AI</span>
+  </div>
+
+  <div class="receipt">ไม่ใช่แค่พูดได้ — <b>ใช้จริงใน POC ที่ทำงานแล้ว:</b>&nbsp; E2E <b>4/4</b> · Agent evals <b>17/17</b> · RAG guardrail <b>10/10</b></div>
+  <div class="ask">🎯 <b>ขอทุน ฿150,000</b> — แล้วผมจะอธิบายทุกคำ และใช้มันสร้างโปรดักต่อให้ครบทุก vertical</div>
+</div></div>
+<script>
+  function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);document.getElementById('deck').style.transform='scale('+s+')'}
+  addEventListener('resize',fit);fit();
+</script>
+</body>
+</html>

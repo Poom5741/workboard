@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เตรียมเครื่อง + Deploy แรกของชีวิต — Vibe Coding for PM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="index.html">← หน้าหลัก</a><span>Vibe Coding for PM · Lesson 0</span></div>
+<div class="kicker">LESSON 0 / 5</div>
+
+<h1>Lesson 0 — เตรียมเครื่อง + Deploy แรกของชีวิต</h1>
+<p class="lead">เป้าหมาย: ภายใน 40 นาที คุณมี URL ของตัวเองที่เปิดได้จากมือถือ</p>
+
+<h2>ต้องมีอะไรบ้าง</h2>
+<ul class="check">
+<li><input type="checkbox" data-key="l0-1"> บัญชี <span class="mono">GitHub</span> (สมัครฟรีที่ github.com)</li>
+<li><input type="checkbox" data-key="l0-2"> <span class="mono">ZCode</span> ติดตั้งแล้ว + login ด้วย GLM key ที่ได้รับ</li>
+<li><input type="checkbox" data-key="l0-3"> บัญชี <span class="mono">Cloudflare</span> (สมัครฟรี)</li>
+<li><input type="checkbox" data-key="l0-4"> Fork repo คอร์ส + เปิด auto-add project board ใน UI (10 วิ)</li>
+</ul>
+
+<h2>วงจรที่ต้องจำ</h2>
+<p><span class="mono">บอก → ให้ AI ลงมือ → ตรวจ</span> — งานของคุณคือต้นทางกับปลายทาง ไม่ใช่ตัวกลาง</p>
+
+<h2>Deploy แรก (fallback ถ้าเน็ตห้องล่ม)</h2>
+<div class="cmd"><span class="p">$</span> cd api && npm install && npm run dev<br><span class="p">#</span> เปิด http://localhost:8787 — เห็น board 6 leads ปลอม = ผ่าน</div>
+<p>Deploy จริงมาถึงต้น Lesson 4 — ตอนนี้แค่ให้ทุกเครื่อง "รันได้เท่ากัน" ก่อน</p>
+
+<h2>Check — เช็คตัวเองก่อนไบต์ต่อ</h2>
+<div class="card"><strong>งานของ PM ในวงจร vibe coding คืออะไร</strong><div class="quiz" data-key="l0-q1"><div style="margin:12px 0"><button data-correct="0" data-good="ถูกต้อง — ต้นทาง (การ์ดชัด) กับปลายทาง (ตรวจรับ) คือของคุณ" data-bad="ยังไม่ใช่ — ย้อนไปอ่าน "วงจรที่ต้องจำ" อีกครั้ง">0</button><button data-correct="1" data-good="ถูกต้อง — ต้นทาง (การ์ดชัด) กับปลายทาง (ตรวจรับ) คือของคุณ" data-bad="ยังไม่ใช่ — ย้อนไปอ่าน "วงจรที่ต้องจำ" อีกครั้ง">1</button><button data-correct="0" data-good="ถูกต้อง — ต้นทาง (การ์ดชัด) กับปลายทาง (ตรวจรับ) คือของคุณ" data-bad="ยังไม่ใช่ — ย้อนไปอ่าน "วงจรที่ต้องจำ" อีกครั้ง">2</button></div><div class="feedback"></div></div></div>
+
+<footer>Vibe Coding for PM · ใช้ข้อมูลปลอมเสมอ · ถามได้ทุกเมื่อ — AI ในห้องนี้คือ TA ของคุณ <span class="noprint">· <a href="index.html">บทเรียนอื่น</a></span></footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

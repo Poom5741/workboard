@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard + Deploy ขึ้น internet จริง — Vibe Coding for PM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="index.html">← หน้าหลัก</a><span>Vibe Coding for PM · Lesson 4</span></div>
+<div class="kicker">LESSON 4 / 5</div>
+
+<h1>Lesson 4 — Dashboard + Deploy</h1>
+<p class="lead">เป้าหมาย: URL ของคุณเอง เปิดได้จากมือถือ</p>
+
+<h2>Dashboard</h2>
+<p>การ์ดที่ดีต้องกัน 2 กับดัก: agent สร้าง "ตัวเลขสวย" แทนที่จะอ่านจาก database — และตัวเลขไม่ refresh หลังแก้ข้อมูล ใส่ทั้งสองไว้ใน criteria</p>
+
+<h2>Deploy</h2>
+<div class="cmd"><span class="p">$</span> npx wrangler login<br><span class="p">$</span> cd api && npm run deploy</div>
+<p>เปิด URL จาก <strong>มือถือ</strong> เพิ่ม lead ชื่อตัวเอง 1 รายการ = ผ่าน แล้วโพสต์ URL ในคอลัมน์ Deployed ของ board</p>
+
+<h2>กติกาห้อง</h2>
+<ul>
+<li>หมดเวลา 20 นาที → ใช้ URL สาธิตของผู้สอนก่อน กลับมาแก้ตอนพัก — <strong>ห้องไม่รอคนเดียว</strong></li>
+<li>ข้อมูลบน demo ต้องเป็นข้อมูลปลอมเท่านั้น — เหตุผลอยู่ใน Lesson 5</li>
+</ul>
+
+<h2>Check</h2>
+<div class="card"><strong>หลักฐานว่า deploy สำเร็จ คืออะไร</strong><div class="quiz" data-key="l4-q1"><div style="margin:12px 0"><button data-correct="0" data-good="ถูก — ตัวคุณเปิดจากอุปกรณ์อื่นและใช้งานได้ = receipt" data-bad="ใช่แล้วไหม? "เครื่องมือบอกสำเร็จ" ไม่ใช่ receipt — เหมือน "agent บอกว่าเสร็จ"">0</button><button data-correct="1" data-good="ถูก — ตัวคุณเปิดจากอุปกรณ์อื่นและใช้งานได้ = receipt" data-bad="ใช่แล้วไหม? "เครื่องมือบอกสำเร็จ" ไม่ใช่ receipt — เหมือน "agent บอกว่าเสร็จ"">1</button><button data-correct="0" data-good="ถูก — ตัวคุณเปิดจากอุปกรณ์อื่นและใช้งานได้ = receipt" data-bad="ใช่แล้วไหม? "เครื่องมือบอกสำเร็จ" ไม่ใช่ receipt — เหมือน "agent บอกว่าเสร็จ"">2</button></div><div class="feedback"></div></div></div>
+
+<footer>Vibe Coding for PM · ใช้ข้อมูลปลอมเสมอ · ถามได้ทุกเมื่อ — AI ในห้องนี้คือ TA ของคุณ <span class="noprint">· <a href="index.html">บทเรียนอื่น</a></span></footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>

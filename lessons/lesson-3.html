@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Correction loop — เมื่อ AI ทำผิด — Vibe Coding for PM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="wrap">
+<div class="topbar"><a href="index.html">← หน้าหลัก</a><span>Vibe Coding for PM · Lesson 3</span></div>
+<div class="kicker">LESSON 3 / 5</div>
+
+<h1>Lesson 3 — Correction loop</h1>
+<p class="lead">ทักษะที่เอากลับไปใช้ทุกวัน: แก้ AI ให้ถูก โดยไม่แกะโค้ดเอง</p>
+
+<h2>3 ขั้นของ loop</h2>
+<ol>
+<li>ระบุ <strong>อะไร</strong> ไม่ตรงกับ <strong>ข้อ criteria ไหน</strong> (ไม่ใช่ "มันพัง")</li>
+<li>สั่งแก้โดยอ้าง <strong>พฤติกรรมที่ควรเป็น</strong> — "ฟังก์ชันควรคืน 400 เมื่อ stage ไม่อยู่ใน 5 ค่า" ไม่ใช่ "แก้บรรทัด 52"</li>
+<li>ตรวจใหม่ + รัน test ทั้งชุด — แก้แดงแล้วพังเขียวที่อื่น = ยังไม่จบ</li>
+</ol>
+
+<h2>บทเรียนจริงจากการสร้าง LeadDesk</h2>
+<div class="card">Agent เขียน <span class="mono">.first(id)</span> แบบที่ดูทำงานได้ — แต่ D1 API ต้องใช้ <span class="mono">.bind(id).first()</span> — <strong>test แดงจับได้ทันที 3 จุด</strong> นี่คือเหตุผลที่ test คือหลักฐาน ไม่ใช่ตัวเลือก</div>
+<div class="card">อีกจุด: <span class="mono">db.exec()</span> กับ SQL หลายบรรทัด ผ่านบนเครื่อง dev แต่พังบน D1 จริง — <strong>จับได้ตอน boot จริงเท่านั้น</strong> ทั้ง test และการรันจริง ต้องมีทั้งคู่</div>
+
+<h2>Check</h2>
+<div class="card"><strong>Agent แก้ไม่หาย 2 รอบติด ควรทำอย่างไร</strong><div class="quiz" data-key="l3-q1"><div style="margin:12px 0"><button data-correct="0" data-good="ถูก — ปัญหาส่วนใหญ่คือเข้าใจผิด ไม่ใช่พิมพ์ผิด" data-bad="ยังไงก็ผิดทั้งสามข้อยกเว้นข้อที่ 2 — วน loop ด้วยคำเดิมไม่ได้อะไร และการแกะโค้ดคือการยอมแพ้ต่อสิ่งที่ฝึกไว้">0</button><button data-correct="1" data-good="ถูก — ปัญหาส่วนใหญ่คือเข้าใจผิด ไม่ใช่พิมพ์ผิด" data-bad="ยังไงก็ผิดทั้งสามข้อยกเว้นข้อที่ 2 — วน loop ด้วยคำเดิมไม่ได้อะไร และการแกะโค้ดคือการยอมแพ้ต่อสิ่งที่ฝึกไว้">1</button><button data-correct="0" data-good="ถูก — ปัญหาส่วนใหญ่คือเข้าใจผิด ไม่ใช่พิมพ์ผิด" data-bad="ยังไงก็ผิดทั้งสามข้อยกเว้นข้อที่ 2 — วน loop ด้วยคำเดิมไม่ได้อะไร และการแกะโค้ดคือการยอมแพ้ต่อสิ่งที่ฝึกไว้">2</button></div><div class="feedback"></div></div></div>
+
+<footer>Vibe Coding for PM · ใช้ข้อมูลปลอมเสมอ · ถามได้ทุกเมื่อ — AI ในห้องนี้คือ TA ของคุณ <span class="noprint">· <a href="index.html">บทเรียนอื่น</a></span></footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>
