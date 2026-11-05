@@ -3,75 +3,88 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Watcation · Pitch 5 นาที</title>
+<title>Watcation · Pitch ฿150K</title>
 <link rel="stylesheet" href="assets/fonts.css">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/animations/animations.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#FFFFFF;--soft:#F2F7F5;--ink:#0E2119;--muted:#5C7A6E;--line:#DCE6E1;
-    --green:#0B7A55;--green-deep:#085A3F;--gold:#B8860B;--gold-soft:#F7F0DF;
+    --bg:#081711;--panel:rgba(255,255,255,.045);--panel-line:rgba(255,255,255,.10);
+    --ink:#F3F7F4;--dim:#9DB4A7;--line:rgba(255,255,255,.12);
+    --green:#2EE6A0;--green-deep:#0B7A55;--gold:#E8B84B;--gold-soft:rgba(232,184,75,.12);
   }
   *{margin:0;box-sizing:border-box}
-  html,body{height:100%;background:#111511;overflow:hidden;font-family:'IBM Plex Sans Thai',sans-serif}
+  html,body{height:100%;background:#040b08;overflow:hidden;font-family:'IBM Plex Sans Thai',sans-serif}
   #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
-  #deck{width:1920px;height:1080px;background:var(--paper);color:var(--ink);position:relative;transform-origin:center;box-shadow:0 24px 90px rgba(0,0,0,.55);display:flex;flex-direction:column}
+  #deck{width:1920px;height:1080px;background:var(--bg);color:var(--ink);position:relative;transform-origin:center;display:flex;flex-direction:column;overflow:hidden}
+  /* atmosphere: gradient glow + grain */
+  #deck::before{content:'';position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(1100px 700px at 82% -10%,rgba(46,230,160,.10),transparent 60%),
+               radial-gradient(900px 700px at 5% 110%,rgba(232,184,75,.08),transparent 60%)}
+  #deck::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-  .slide{position:absolute;inset:0;display:none;flex-direction:column;padding:90px 120px}
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;padding:84px 120px 110px}
   .slide.is-active{display:flex}
 
-  /* speaker badge */
-  .who{position:absolute;top:36px;right:120px;font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;letter-spacing:.06em;padding:10px 22px;border-radius:999px}
-  .who.c{background:var(--gold-soft);color:#8a6508;border:3px solid var(--gold)}
-  .who.a{background:#E6F4EE;color:var(--green-deep);border:3px solid var(--green)}
-  .who.b{background:#E8EEFF;color:#1A5FA8;border:3px solid #1A5FA8}
+  .who{position:absolute;top:40px;right:120px;font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;letter-spacing:.08em;padding:10px 24px;border-radius:999px;backdrop-filter:blur(8px)}
+  .who.c{background:var(--gold-soft);color:var(--gold);border:2px solid rgba(232,184,75,.5)}
+  .who.a{background:rgba(46,230,160,.10);color:var(--green);border:2px solid rgba(46,230,160,.45)}
+  .who.b{background:rgba(110,150,255,.10);color:#9BBDFF;border:2px solid rgba(110,150,255,.45)}
 
-  .kick{font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;letter-spacing:.2em;color:var(--green);text-transform:uppercase;margin-bottom:36px}
-  h1{font-size:110px;font-weight:700;line-height:1.12;letter-spacing:-.03em;color:var(--ink)}
-  h1 em{font-style:normal;color:var(--green-deep)}
-  h2{font-size:84px;font-weight:700;line-height:1.18;letter-spacing:-.025em;margin-bottom:50px}
-  h2 em{font-style:normal;color:var(--green-deep)}
-  .big{font-size:46px;line-height:1.5;color:var(--ink);font-weight:500}
-  .dim{font-size:36px;color:var(--muted)}
-  .foot{position:absolute;bottom:48px;left:120px;right:120px;display:flex;justify-content:space-between;font-size:22px;color:var(--muted);border-top:2px solid var(--line);padding-top:20px}
+  .kick{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;letter-spacing:.24em;color:var(--green);text-transform:uppercase;margin-bottom:34px}
+  .kick.g{color:var(--gold)}
+  h1{font-size:150px;font-weight:700;line-height:1.02;letter-spacing:-.03em;
+     background:linear-gradient(115deg,#fff 20%,var(--green) 70%,var(--gold) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  h2{font-size:78px;font-weight:700;line-height:1.16;letter-spacing:-.02em;margin-bottom:44px}
+  h2 em,h1 em{font-style:normal}
+  h2 em{color:var(--green)}
+  .big{font-size:42px;line-height:1.5;color:var(--ink);font-weight:500}
+  .dim{font-size:32px;color:var(--dim);line-height:1.5}
+  .gold{color:var(--gold)}
+  .foot{position:absolute;bottom:44px;left:120px;right:120px;display:flex;justify-content:space-between;font-size:21px;color:var(--dim);border-top:1px solid var(--line);padding-top:18px;z-index:2}
 
-  /* stat trio */
-  .stats{display:flex;gap:36px;margin:auto 0}
-  .stat{flex:1;background:var(--soft);border-radius:24px;padding:48px 40px}
-  .stat .n{font-size:110px;font-weight:700;color:var(--green-deep);line-height:1;font-family:'IBM Plex Mono',monospace}
-  .stat .l{font-size:30px;color:var(--muted);margin-top:18px}
+  .card{background:var(--panel);border:1px solid var(--panel-line);border-radius:26px;padding:46px 42px;backdrop-filter:blur(6px)}
 
-  /* flow diagram */
-  .flow{display:flex;align-items:center;gap:0;margin:auto 0}
-  .flow .b{flex:1;background:var(--soft);border:3px solid var(--line);border-radius:24px;padding:44px 30px;text-align:center}
-  .flow .b b{display:block;font-size:40px;color:var(--green-deep);margin-bottom:14px}
-  .flow .b p{font-size:27px;color:var(--ink)}
-  .flow .a{font-size:70px;padding:0 26px;color:var(--green);font-weight:700}
+  .stats{display:flex;gap:34px;margin:auto 0}
+  .stat{flex:1;background:var(--panel);border:1px solid var(--panel-line);border-radius:26px;padding:48px 40px;backdrop-filter:blur(6px)}
+  .stat .n{font-size:104px;font-weight:700;color:var(--green);line-height:1;font-family:'IBM Plex Mono',monospace;letter-spacing:-.02em}
+  .stat.g .n{color:var(--gold)}
+  .stat .l{font-size:29px;color:var(--dim);margin-top:20px;line-height:1.45}
 
-  /* layers stack */
-  .layer{border:4px solid var(--line);border-radius:26px;padding:38px 46px;margin-bottom:26px;background:#fff}
-  .layer b{font-size:44px;display:block}
-  .layer p{font-size:30px;color:var(--muted);margin-top:8px}
-  .l1{border-color:var(--green);background:var(--soft)}
-  .l1 b{color:var(--green-deep)}
-  .l2{border-color:var(--gold);background:#FBF6E8}
-  .l2 b{color:#8a6508}
-  .l3{border-color:#1A5FA8;background:#EDF2FC}
-  .l3 b{color:#1A5FA8}
+  .flow{display:flex;align-items:stretch;gap:0;margin:auto 0}
+  .flow .b{flex:1;background:var(--panel);border:1px solid var(--panel-line);border-radius:24px;padding:44px 28px;text-align:center;backdrop-filter:blur(6px)}
+  .flow .b b{display:block;font-size:38px;color:var(--green);margin-bottom:14px}
+  .flow .b p{font-size:26px;color:var(--dim)}
+  .flow .a{align-self:center;font-size:64px;padding:0 22px;color:var(--gold);font-weight:700}
 
-  /* ask */
-  .mega{font-size:190px;font-weight:700;color:var(--green-deep);letter-spacing:-.03em;line-height:1}
-  .askrow{display:flex;gap:70px;margin-top:60px}
-  .askrow .k{font-size:80px;font-weight:700;color:var(--green-deep)}
-  .askrow .l{font-size:30px;color:var(--muted);margin-top:8px}
+  .layer{border:1px solid var(--panel-line);border-left:8px solid var(--line);border-radius:22px;padding:34px 44px;margin-bottom:24px;background:var(--panel)}
+  .layer b{font-size:40px;display:block}
+  .layer p{font-size:28px;color:var(--dim);margin-top:8px}
+  .l1{border-left-color:var(--green)} .l1 b{color:var(--green)}
+  .l2{border-left-color:var(--gold)}  .l2 b{color:var(--gold)}
+  .l3{border-left-color:#9BBDFF}      .l3 b{color:#9BBDFF}
 
-  .notes{display:none;font-size:26px;line-height:1.8;color:var(--ink);background:var(--gold-soft);border-radius:18px;padding:24px 30px;margin-top:36px}
-  #hud{position:fixed;bottom:16px;right:24px;color:#9aa39d;font-family:'IBM Plex Mono',monospace;font-size:16px;z-index:9}
+  .mega{font-size:210px;font-weight:700;letter-spacing:-.03em;line-height:1;font-family:'IBM Plex Mono',monospace;
+    background:linear-gradient(115deg,var(--green) 20%,var(--gold) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .askrow{display:flex;gap:70px;margin-top:64px}
+  .askrow .k{font-size:76px;font-weight:700;color:var(--green);font-family:'IBM Plex Mono',monospace}
+  .askrow .l{font-size:29px;color:var(--dim);margin-top:10px;line-height:1.45}
+
+  .quote{border-left:6px solid var(--gold);padding:18px 30px;background:var(--gold-soft);border-radius:0 18px 18px 0;font-size:29px;color:var(--ink);margin-top:22px}
+  .quote i{color:var(--dim);font-size:24px;font-style:normal;display:block;margin-top:8px}
+
+  .notes{display:none;font-size:25px;line-height:1.8;background:var(--gold-soft);border-radius:18px;padding:22px 28px;margin-top:32px}
+  #hud{position:fixed;bottom:16px;right:24px;color:#7f9488;font-family:'IBM Plex Mono',monospace;font-size:15px;z-index:9}
   @media print{
-    html,body{overflow:visible;background:#fff}
+    html,body{overflow:visible;background:#081711}
     #stage{position:static}
-    #deck{width:auto;height:auto;box-shadow:none;transform:none !important}
+    #deck{width:auto;height:auto;transform:none !important}
     .slide{position:relative;display:flex !important;page-break-after:always;width:1920px;height:1080px}
     #hud{display:none}
+    #deck::before,#deck::after{display:none}
+    *{backdrop-filter:none !important}
+    #deck{background:#0B2419}
   }
 </style>
 </head>
@@ -82,132 +95,153 @@
   <section class="slide is-active" data-title="Cover">
     <span class="who c">🎤 C · BUSINESS</span>
     <div style="margin:auto 0">
-      <div class="kick">TED FUND · IDEATION · ฿150,000</div>
+      <div class="kick g">TED FUND · IDEATION · SEED ฿150,000</div>
       <h1>WATCATION</h1>
-      <p class="big" style="margin-top:30px"><em style="font-style:normal;color:var(--green-deep);font-weight:700">Your AI agent talks to the temple's.</em></p>
-      <p class="dim" style="margin-top:26px">แพลตฟอร์มนอนวัด — AI สองฝั่งเจรจากันเอง<br>ค้น เทียบ จอง เตรียมตัว จบในบทสนทนาเดียว</p>
+      <p class="big" style="margin-top:36px;font-size:52px"><b style="color:var(--green)">Your AI agent talks to the temple's.</b></p>
+      <p class="dim" style="margin-top:24px">แพลตฟอร์มนอนวัด — AI สองฝั่งเจรจากันเอง<br>ค้น เทียบ จอง เตรียมตัว จบในบทสนทนาเดียว</p>
     </div>
-    <div class="foot"><span>ทีม Watcation — Poom (Tech) · Snowyves (Business)</span><span>TED Fund · Ideation · 2569</span></div>
-    <aside class="notes">🎤 C เปิด: "เกาหลีมี Templestay 349,219 คน ในปีเดียว — คนต่างชาติ 55,515 คน และเพียง 1 ใน 3 ที่เป็นชาวพุทธ" หยุด 1 จังหวะ → "ไทยคือต้นบ้านของสิ่งนี้ วัด 40,000 แห่ง แต่คนต่างชาติอยากพัก ติดที่ ภาษา มารยาท ข้อมูลกระจัดกระจาย เข้าก่อน 16:00 — เราจึงสร้าง Watcation"</aside>
+    <div class="foot"><span>ทีม Watcation — Poom (Tech) · Co-founder (Business/Finance)</span><span>TED Fund · Ideation · 2569</span></div>
+    <aside class="notes">🎤 C เปิด (0:00): "เกาหลีมี Templestay 349,219 คน ในปีเดียว — 55,515 เป็นคนต่างชาติ และเพียง 1 ใน 3 ที่เป็นชาวพุทธ" หยุด 1 จังหวะ → "ไทยคือต้นบ้านของสิ่งนี้ วัด 40,000+ แห่ง แต่คนต่างชาติที่อยากพักวัดไทยติดที่ ภาษา มารยาท ข้อมูลกระจัดกระจาย และกฎ 16:00 — เราจึงสร้าง Watcation"</aside>
   </section>
 
-  <!-- 2 PROBLEM/MARKET — C -->
+  <!-- 2 WHY NOW — C -->
+  <section class="slide" data-title="Why Now">
+    <span class="who c">🎤 C · BUSINESS</span>
+    <div class="kick g">WHY NOW</div>
+    <h2>ทุกอย่างมาบรรจบกัน <em>ปีนี้</em> — ไม่ใช่ 5 ปีก่อน</h2>
+    <div class="stats">
+      <div class="stat"><div class="n">$2.4T</div><div class="l">Wellness tourism ปี 2035 — โตจาก $990B ปี 2025 (CAGR 9.3%) และไทยมีแผน Wellness แห่งชาติ 2025–2034 ผลัก soft power วัดโดยตรง</div></div>
+      <div class="stat g"><div class="n">2026</div><div class="l">ปีที่ agentic travel กลายเป็น category จริง (OAG) — เงินลงทุน travel-AI สะสม $12B+ เราเข้าก่อน OTA รายใหญ่</div></div>
+      <div class="stat"><div class="n">38M</div><div class="l">นักท่องเที่ยวเข้าไทยผ่านกรุงเทพฯ ต่อปี — touchpoint แรกคือที่นี่ และเกาหลีพิสูจน์ดีมานด์แล้วด้วย 349,219 คน/ปี</div></div>
+    </div>
+    <aside class="notes">🎤 C: "โมเดลธุรกิจนี้เป็นไปไม่ได้เมื่อ 5 ปีก่อน — AI ที่เจรจาข้ามภาษาได้จริงเพิ่งเกิด 1–2 ปีนี้ ดีมานด์ wellness โตเป็นเลข 2.4 ล้านล้านดอลลาร์ และรัฐไทยกำลังผลัก soft power วัดด้วยแผนชาติ 10 ปี — สามอย่างนี้มาพร้อมกันปีนี้" → ส่งไม้เรื่องปัญหาเชิงลึก</aside>
+  </section>
+
+  <!-- 3 PROBLEM — C -->
   <section class="slide" data-title="Problem">
     <span class="who c">🎤 C · BUSINESS</span>
-    <div class="kick">PROBLEM / MARKET</div>
-    <h2>เกาหลี 349,219 คน/ปี<br>ไทยคือต้นบ้าน — <em>ไม่มีระบบ</em></h2>
-    <div class="stats">
-      <div class="stat"><div class="n">40,000+</div><div class="l">วัดไทย</div></div>
-      <div class="stat"><div class="n">84%</div><div class="l">ของ solo travelers เป็นผู้หญิง — กลุ่มที่ต้องการความปลอดภัย+โครงสร้าง</div></div>
-      <div class="stat"><div class="n">16:00</div><div class="l">เข้าหลังเวลานี้ = "มาวันหน้า" — ไม่มีใครช่วยจอง</div></div>
+    <div class="kick g">PROBLEM</div>
+    <h2>ดีมานด์มีจริง — แต่ <em>ไม่มีระบบ</em></h2>
+    <div style="display:flex;gap:34px;margin:auto 0">
+      <div style="flex:1.1">
+        <div class="quote">"you can't understand if Buddhist monk are teaching" — กำแพงภาษา<i>— r/Buddhism</i></div>
+        <div class="quote">"works for locals, but less with foreigners who are not used to worshipping idols"<i>— รีวิวจริง TripAdvisor</i></div>
+        <div class="quote">ข้อมูลกระจัดกระจาย เว็บวัดทีละแห่ง + Reddit + blog — และเข้าหลัง 16:00 = "มาวันหน้า"<i>— ไม่มีใครช่วยจอง</i></div>
+      </div>
+      <div class="stat g" style="max-width:560px;display:flex;flex-direction:column;justify-content:center"><div class="n">84%</div><div class="l" style="margin-top:26px">ของ solo travelers เป็นผู้หญิง (54.6% ของตลาด) — กลุ่มที่ต้องการความปลอดภัย + โครงสร้าง ซึ่งวัดให้ได้พอดี แต่วัดที่รับต่างชาติจริงคือ subset เล็กที่ไม่มีที่ไหนรวมข้อมูล</div></div>
     </div>
-    <aside class="notes">🎤 C: เดินเรื่อง 3 ตัวเลขบนจอ → "ปัญหาไม่ใช่ไม่มีดีมานด์ แต่ไม่มีระบบ: ภาษา มารยาท ข้อมูลกระจัดกระจาย" → ส่งไม้: "ทางแก้ — ตอนนี้ฝั่งเทคคือ Poom"</aside>
+    <aside class="notes">🎤 C: อ่าน quote แรกสั้นๆ → ชี้ 84% → "ปัญหาไม่ใช่ไม่มีดีมานด์ แต่ไม่มีระบบ ทางเลือกเดียววันนี้คือเว็บจองแมนนวลผ่าน WhatsApp ราคาไม่โปร่งใส ไม่มี AI — ส่งไม้: 'ทางแก้ — ฝั่งธุรกิจเล่าต่อ แต่เครื่องยนต์สร้างโดย Poom'"</aside>
   </section>
 
-  <!-- 3 SOLUTION — C -->
+  <!-- 4 SOLUTION — C -->
   <section class="slide" data-title="Solution">
     <span class="who c">🎤 C · BUSINESS</span>
-    <div class="kick">SOLUTION</div>
-    <h2>จบใน <em>บทสนทนาเดียว</em></h2>
-    <p class="big" style="margin-bottom:40px">พูดภาษาตัวเอง → AI เจรจากับวัดให้ → ได้การจองที่ตรวจสอบได้</p>
+    <div class="kick g">SOLUTION</div>
+    <h2>จบใน <em>บทสนทนาเดียว</em> — ไม่ใช่แค่แปลภาษา</h2>
+    <p class="big" style="margin-bottom:36px">พูดภาษาตัวเอง → AI สองฝั่ง<b class="gold">เจรจากันเอง</b> → ได้ข้อตกลงจองสองภาษาที่ตรวจสอบได้</p>
     <div class="flow">
-      <div class="b"><b>ค้นหา</b><p>บอกความต้องการ ทำเล/บรรยากาศ/จำนวนคืน</p></div>
-      <div class="b"><b>เทียบวัด</b><p>จัดอันดับพร้อมเหตุผล</p></div>
-      <div class="b"><b>จอง</b><p>ข้อตกลงพักสองภาษา</p></div>
-      <div class="b"><b>เตรียมตัว</b><p>itinerary + มารยาท</p></div>
+      <div class="b"><b>ค้นหา</b><p>บอกความต้องการ<br>ทำเล / บรรยากาศ / จำนวนคืน</p></div>
+      <div class="a">→</div>
+      <div class="b"><b>เทียบวัด</b><p>จัดอันดับพร้อมเหตุผล<br>ทุกตัวเลขมี source</p></div>
+      <div class="a">→</div>
+      <div class="b"><b>จอง</b><p>เอเจนต์คุยกับวัด<br>จนได้ข้อตกลง 2 ภาษา</p></div>
+      <div class="a">→</div>
+      <div class="b"><b>เตรียมตัว</b><p>itinerary + มารยาท<br>แต่งกาย + ตารางกิจกรรม</p></div>
     </div>
-    <aside class="notes">🎤 C: ย้ำว่าไม่ใช่แค่แปลภาษา — เป็นการเจรจาข้อมูลระหว่างสองฝั่งจนจบเป็น booking → ส่งไม้: "พิสูจน์ด้วยสถาปัตยกรรมจริง — ฝั่งเทคคือ Poom"</aside>
+    <aside class="notes">🎤 C: ย้ำจุดต่าง: "ทุกเว็บจองปัจจุบันเป็น catalog + คนกลางแมนนวล เราเป็น agentic platform — และผู้ใช้เห็น log การเจรจาทุก hop เป็น demo centerpiece ของเรา" → ส่งไม้: "พิสูจน์ด้วยสถาปัตยกรรมจริง — ฝั่งเทคคือ Poom"</aside>
   </section>
 
-  <!-- 4 ARCHITECTURE — A -->
+  <!-- 5 ARCHITECTURE — A -->
   <section class="slide" data-title="Architecture">
     <span class="who a">🎤 A · TECH</span>
     <div class="kick">ARCHITECTURE — AGENT-TO-AGENT</div>
     <h2>Traveler Agent ⇄ Temple Agent<br>ผู้ใช้เห็นการเจรจา <em>ทุก hop</em></h2>
     <div class="flow">
-      <div class="b"><b>👤 นักท่องเที่ยว</b><p>EN/中/日/TH</p></div>
+      <div class="b"><b>👤 นักท่องเที่ยว</b><p>EN / 中 / 日 / TH</p></div>
       <div class="a">⇄</div>
-      <div class="b"><b>🧳 Traveler Agent</b><p>จับ intent · ยิง tool call</p></div>
+      <div class="b"><b>🧳 Traveler Agent</b><p>จับ intent · stage memory<br>ยิง tool call จริง</p></div>
       <div class="a">⇄</div>
-      <div class="b"><b>🛕 Temple Agent</b><p><b>RAG-only</b> — ตอบจาก KB วัดนั้น นอกขอบเขต = ปฏิเสธ</p></div>
+      <div class="b"><b>🛕 Temple Agent</b><p><b style="color:var(--gold)">RAG-only</b> — ตอบจาก KB วัดนั้น<br>ทุก fact มี source URL<br>นอกขอบเขต = ปฏิเสธ</p></div>
       <div class="a">→</div>
       <div class="b"><b>✅ จองสำเร็จ</b><p>ข้อตกลง 2 ภาษา</p></div>
     </div>
-    <aside class="notes">🎤 A: อธิบาย flow 4 กล่อง → ย้ำ guardrail สำคัญสุด: "Temple Agent ถูกออกแบบให้ปฏิเสธเรื่องศาสนาถ้าไม่มีข้อมูลวัดรองรับ — เพราะการเดาเรื่องศาสนาคือความผิดพลาดที่แก้ไม่ได้" → "และเราไม่พูดเปล่า — มีข้อสอบ"</aside>
+    <aside class="notes">🎤 A: อธิบาย flow → ย้ำ guardrail สำคัญสุด: "Temple Agent ถูกออกแบบให้ปฏิเสธเรื่องศาสนาถ้าไม่มีข้อมูลวัดรองรับ — เพราะการเดาเรื่องศาสนาคือความผิดพลาดที่แก้ไม่ได้" → "และเราไม่พูดเปล่า — มีข้อสอบ"</aside>
   </section>
 
-  <!-- 5 RECEIPTS — A -->
+  <!-- 6 RECEIPTS — A -->
   <section class="slide" data-title="Receipts">
     <span class="who a">🎤 A · TECH</span>
-    <div class="kick">RECEIPTS — POC ใช้งานได้จริง วัด 5 วัด</div>
+    <div class="kick">RECEIPTS — POC ใช้งานได้จริง · วัด 5 วัด</div>
     <h2>พิสูจน์ด้วย <em>ตัวเลข</em> ไม่ใช่คำโม้</h2>
     <div class="stats">
-      <div class="stat"><div class="n">4/4</div><div class="l">E2E tests — flow จริงครบ</div></div>
-      <div class="stat"><div class="n">17/17</div><div class="l">Agent evals — คุณภาพคำตอบ</div></div>
-      <div class="stat"><div class="n">10/10</div><div class="l">Guardrail — ปฏิเสธนอก KB ถูกต้อง</div></div>
+      <div class="stat"><div class="n">4/4</div><div class="l">E2E tests — browse → chat → เทียบ → จอง → ข้อตกลง 2 ภาษา ครบจริง</div></div>
+      <div class="stat"><div class="n">17/17</div><div class="l">Agent evals — คุณภาพคำตอบผ่านทุกข้อ</div></div>
+      <div class="stat g"><div class="n">10/10</div><div class="l">Guardrail — ปฏิเสธนอก-KB ถูกต้องทุกกรณี พร้อมส่งต่อให้ยืนยันกับวัด</div></div>
     </div>
-    <p class="dim" style="margin-top:44px">แพลตฟอร์มจริง: Astro + Cloudflare Workers + D1 — และเริ่มมีพันธมิตรจริง: DomeCloud (AI gateway · inference · governance) + Qwen ecosystem Thailand</p>
-    <aside class="notes">🎤 A: ชี้ตัวเลขทีละตัว → อธิบาย guardrail test สั้นๆ (ให้ agent คำถามนอก KB แล้วมันต้องปฏิเสธ) → ส่งไม้: "เครื่องยนต์พร้อม — คำถามถัดไป: คุ้มไหม → ฝั่งการเงิน B"</aside>
+    <p class="dim" style="margin-top:40px">แพลตฟอร์มจริง: Astro + Cloudflare Workers + D1 — และเริ่มมีพันธมิตรจริง: <b style="color:var(--ink)">DomeCloud</b> (AI gateway · inference · governance) + <b style="color:var(--ink)">Qwen ecosystem Thailand</b></p>
+    <aside class="notes">🎤 A: ชี้ตัวเลขทีละตัว → อธิบาย guardrail test สั้นๆ (ยิงคำถามนอก KB ให้ agent แล้วมันต้องปฏิเสธ) → โชว์ KB-per-temple ว่าเป็นสินทรัพย์ข้อมูลที่ก๊อปยาก → ส่งไม้: "เครื่องยนต์พร้อม — คำถามถัดไป: คุ้มไหม → ฝั่งการเงิน"</aside>
   </section>
 
-  <!-- 6 BUSINESS — B -->
+  <!-- 7 BUSINESS — B -->
   <section class="slide" data-title="Business Model">
     <span class="who b">🎤 B · FINANCE</span>
     <div class="kick">BUSINESS MODEL</div>
     <h2>ไม่เช่าวัด — ขายแพ็กเกจประสบการณ์</h2>
     <div class="stats">
-      <div class="stat"><div class="n">≥70%</div><div class="l">รายได้/บริจาคถึงวัด — โปร่งใส</div></div>
-      <div class="stat"><div class="n">20–30%</div><div class="l">platform margin (OTA ทั่วไปหัก 20–40%)</div></div>
-      <div class="stat"><div class="l" style="font-size:26px;color:var(--ink);font-weight:600">B-side คุณค่า</div><div class="l">ส่งแขกที่ "มาถูกเตรียม" — รู้ตาราง มารยาท ก่อนถึงวัด</div></div>
+      <div class="stat"><div class="n">≥70%</div><div class="l">รายได้/บริจาคถึงวัด — โปร่งใส ตรงแนว soft power ที่รัฐผลัก ไม่แปลงวัดเป็นโรงแรม</div></div>
+      <div class="stat"><div class="n">20–30%</div><div class="l">platform margin — เทียบ OTA ทั่วไปที่หัก 20–40%</div></div>
+      <div class="stat g"><div class="n">KB</div><div class="l">Moat: knowledge base ต่อวัดที่ verify ทุก fact — สินทรัพย์ที่สะสมได้เร็วกว่าที่ OTA จะก๊อป</div></div>
     </div>
-    <aside class="notes">🎤 B: โมเดล = แพ็กเกจประสบการณ์ ไม่ใช่ค่าเช่าวัด → โปร่งใส ≥70% → margin 20-30% เทียบ OTA → B-side: วัดได้แขกที่ถูกเตรียมมาแล้ว → ส่งไม้ไป roadmap</aside>
+    <p class="dim" style="margin-top:36px">B-side: วัดได้แขกที่ <b style="color:var(--ink)">"มาถูกเตรียม"</b> — รู้ตาราง การแต่งกาย มารยาทก่อนถึง แก้ pain ที่พระเหนื่อยมาที่สุด</p>
+    <aside class="notes">🎤 B: "เราไม่เช่าวัด ไม่แปลงวัดเป็นโรงแรม — ขายแพ็กเกจประสบการณ์คัดสรร รายได้ส่วนใหญ่ ≥70% ถึงวัดแบบโปร่งใส" → margin เทียบ OTA → moat คือ KB สะสม → ส่งไม้ไป roadmap</aside>
   </section>
 
-  <!-- 7 ROADMAP — B -->
+  <!-- 8 ROADMAP — B -->
   <section class="slide" data-title="Roadmap">
     <span class="who b">🎤 B · FINANCE</span>
     <div class="kick">ROADMAP — BANGKOK FIRST</div>
-    <h2>ยึด กทม. ให้แน่น → ขยายทั้งประเทศ</h2>
+    <h2>ยึด กทม. ให้แน่น → <em>ขยายทั้งประเทศ</em></h2>
     <div class="stats">
-      <div class="stat"><div class="n">5</div><div class="l">โซนหลักของ กทม. ครบ (ด.1–4) — ✅ วัดราชนาดูร · วัดประยุรวัตนาราม</div></div>
-      <div class="stat"><div class="n">100</div><div class="l">bookings แรก (ด.3–4) + รีวิวจริง 10–20 ราย</div></div>
-      <div class="stat"><div class="n">10+</div><div class="l">วัด · 300+ bookings · จดทะเบียนนิติบุคคล (ด.5–6)</div></div>
+      <div class="stat"><div class="n" style="font-size:84px">ด.1–4</div><div class="l">เดือน 1–4: วัดครบทุกโซนหลัก กทม. — ✅ วัดราชนาดูร · วัดประยุรวัตนาราม อยู่ใน POC แล้ว (เกาะรัตนโกสินทร์ · ชานเมืองตะวันออก)</div></div>
+      <div class="stat g"><div class="n">100</div><div class="l">bookings แรก (เดือน 3–4) + รีวิวจริง 10–20 ราย · rating เป้า ≥4.5/5</div></div>
+      <div class="stat"><div class="n">10+</div><div class="l">วัด (กทม. + เชียงใหม่ แม่ฮ่องสอน อุบลฯ ภูเก็ต) · 300+ bookings · จดทะเบียนนิติบุคคล — IP 100% ของทีม</div></div>
     </div>
-    <aside class="notes">🎤 B: Bangkok-first = 38 ล้านนักท่องเที่ยวเข้าผ่านกรุงเทพฯ → ส่งไม้: "ทั้งหมดนี้เริ่มได้ด้วยเงิน 150,000 บาท — และวิสัยทัศน์ไม่จบที่วัด"</aside>
+    <aside class="notes">🎤 B: Bangkok-first เพราะ 38 ล้านนักท่องเที่ยวเข้าผ่านกรุงเทพฯ — จับ touchpoint แรก → KPI รวม grounded rate ของ Temple Agent และสัดส่วนรายได้ถึงวัด → ส่งไม้: "ทั้งหมดนี้เริ่มได้ด้วยเงิน 150,000 บาท"</aside>
   </section>
 
-  <!-- 8 VISION — B -->
+  <!-- 9 VISION — B -->
   <section class="slide" data-title="Vision & Partners">
     <span class="who b">🎤 B · FINANCE</span>
     <div class="kick">VISION — วัดคือหลักฐานแรก ไม่ใช่เส้นชัย</div>
     <h2>เครื่องยนต์เดียวกัน<br>สำหรับ <em>องค์กรไทยทุกแบบ</em></h2>
-    <div class="layer l1"><b>✅ วัด (นอนวัด) — พิสูจน์แล้ว</b><p>Soft power · ตลาดที่ pain ชัดสุด</p></div>
-    <div class="layer l2"><b>🔶 Local model inference — DomeCloud + Qwen Thailand</b><p>AI gateway · open-weight บน infra ไทย · AI governance</p></div>
-    <div class="layer l3"><b>ระบบเฉพาะองค์กร — พิพิธภัณฑ์ · ราชการ · กลาโหม</b><p>AI ที่ ground กับข้อมูลจริง — ไม่เดา ไม่หลุดประเทศ</p></div>
-    <aside class="notes">🎤 B VISION LINE: "ธุรกิจนี้ยืนอยู่บน inference ของคนอื่นวันนี้ — เป้าหมายคือชั้น inference ของประเทศ: open-weight บน infra ไทย รัฐซื้อได้อย่างมั่นใจ ข้อมูลอยู่ไทย กฎหมายไทย ตรวจสอบได้ — AI Act ที่กำลังมาจะเปลี่ยนจากทางเลือกเป็นความจำเป็น · เราไม่ได้เริ่มจากศูนย์: DomeCloud + Qwen Ambassador Thailand" → ส่งกลับ C ปิด</aside>
+    <div class="layer l1"><b>✅ วัด (นอนวัด) — พิสูจน์แล้ว</b><p>Soft power · ตลาดที่ pain ชัดที่สุด · POC ทำงานจริงวันนี้</p></div>
+    <div class="layer l2"><b>🔶 Local model inference — DomeCloud + Qwen Thailand</b><p>AI gateway · open-weight บน infra ไทย · ข้อมูลอยู่ไทย กฎหมายไทย ตรวจสอบได้</p></div>
+    <div class="layer l3"><b>ระบบเฉพาะองค์กร — พิพิธภัณฑ์ · ราชการ · กลาโหม</b><p>AI ที่ ground กับข้อมูลจริง — ไม่เดา ไม่หลุดประเทศ · AI Act ที่กำลังมาจะเปลี่ยนจากทางเลือกเป็นความจำเป็น</p></div>
+    <aside class="notes">🎤 B VISION LINE: "ธุรกิจนี้ยืนอยู่บน inference ของคนอื่นวันนี้ — เป้าหมายคือชั้น inference ของประเทศ: open-weight บน infra ไทย รัฐซื้อได้อย่างมั่นใจ · เราไม่ได้เริ่มจากศูนย์: DomeCloud + Qwen Ambassador Thailand" → ส่งกลับ C ปิด</aside>
   </section>
 
-  <!-- 9 ASK — C -->
+  <!-- 10 ASK — C -->
   <section class="slide" data-title="The Ask">
     <span class="who c">🎤 C · BUSINESS</span>
-    <div class="kick">THE ASK</div>
-    <div class="mega">฿150,000</div>
-    <div class="askrow">
-      <div><div class="k">6 เดือน</div><div class="l">pilot วัด 3–5 วัด กทม. ครบโซน</div></div>
-      <div><div class="k">100→300</div><div class="l">bookings · 10+ วัด · จดทะเบียน</div></div>
+    <div class="kick g">THE ASK</div>
+    <div style="margin:auto 0">
+      <div class="mega">฿150,000</div>
+      <div class="askrow">
+        <div><div class="k">6 เดือน</div><div class="l">pilot วัด 3–5 วัด กทม. ครบโซน</div></div>
+        <div><div class="k">100→300</div><div class="l">bookings · 10+ วัด · จดทะเบียน</div></div>
+        <div><div class="k">≥70%</div><div class="l">รายได้ถึงวัด — โปร่งใสตั้งแต่วันแรก</div></div>
+      </div>
+      <p class="big" style="margin-top:64px;font-size:48px">วัดคือหลักฐานแรก ไม่ใช่เส้นชัย — <b style="color:var(--green)">"Your AI agent talks to the temple's."</b></p>
     </div>
-    <p class="big" style="margin-top:70px">จบด้วย tagline — <em style="font-style:normal;color:var(--green-deep);font-weight:700">"Your AI agent talks to the temple's."</em></p>
     <aside class="notes">🎤 C ปิด: "วัดคือหลักฐานแรก ไม่ใช่เส้นชัย — เครื่องยนต์เดียวกันไปพิพิธภัณฑ์ หน่วยงานราชการ ทุกองค์กรไทย ขอทุน 150,000 บาท เพื่อพิสูจน์ว่า AI ของไทย เปิดประตูวัดไทยให้คนทั้งโลก — Your AI agent talks to the temple's." จบ ไม่เพิ่มคำอื่น</aside>
   </section>
 
 </div></div>
-<div id="hud">← → · S = presenter · 1/9</div>
+<div id="hud">← → · S = presenter · 1/10</div>
 <script src="assets/runtime.js"></script>
 <script>
-  // scale deck to viewport
   function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);document.getElementById('deck').style.transform='scale('+s+')'}
   addEventListener('resize',fit);fit();
-  // HUD counter syncs with runtime's is-active
   const hud=document.getElementById('hud');
   setInterval(()=>{
     const slides=[...document.querySelectorAll('.slide')];
