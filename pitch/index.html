@@ -1,152 +1,218 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Watcation · Pitch Deck 5 นาที</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watcation · Pitch 5 นาที</title>
 <link rel="stylesheet" href="assets/fonts.css">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/base.css">
-<link rel="stylesheet" href="assets/animations/animations.css">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;--soft:#F2F7F5;--ink:#0E2119;--muted:#5C7A6E;--line:#DCE6E1;
+    --green:#0B7A55;--green-deep:#085A3F;--gold:#B8860B;--gold-soft:#F7F0DF;
+  }
+  *{margin:0;box-sizing:border-box}
+  html,body{height:100%;background:#111511;overflow:hidden;font-family:'IBM Plex Sans Thai',sans-serif}
+  #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  #deck{width:1920px;height:1080px;background:var(--paper);color:var(--ink);position:relative;transform-origin:center;box-shadow:0 24px 90px rgba(0,0,0,.55);display:flex;flex-direction:column}
+
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;padding:90px 120px}
+  .slide.is-active{display:flex}
+
+  /* speaker badge */
+  .who{position:absolute;top:36px;right:120px;font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;letter-spacing:.06em;padding:10px 22px;border-radius:999px}
+  .who.c{background:var(--gold-soft);color:#8a6508;border:3px solid var(--gold)}
+  .who.a{background:#E6F4EE;color:var(--green-deep);border:3px solid var(--green)}
+  .who.b{background:#E8EEFF;color:#1A5FA8;border:3px solid #1A5FA8}
+
+  .kick{font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;letter-spacing:.2em;color:var(--green);text-transform:uppercase;margin-bottom:36px}
+  h1{font-size:110px;font-weight:700;line-height:1.12;letter-spacing:-.03em;color:var(--ink)}
+  h1 em{font-style:normal;color:var(--green-deep)}
+  h2{font-size:84px;font-weight:700;line-height:1.18;letter-spacing:-.025em;margin-bottom:50px}
+  h2 em{font-style:normal;color:var(--green-deep)}
+  .big{font-size:46px;line-height:1.5;color:var(--ink);font-weight:500}
+  .dim{font-size:36px;color:var(--muted)}
+  .foot{position:absolute;bottom:48px;left:120px;right:120px;display:flex;justify-content:space-between;font-size:22px;color:var(--muted);border-top:2px solid var(--line);padding-top:20px}
+
+  /* stat trio */
+  .stats{display:flex;gap:36px;margin:auto 0}
+  .stat{flex:1;background:var(--soft);border-radius:24px;padding:48px 40px}
+  .stat .n{font-size:110px;font-weight:700;color:var(--green-deep);line-height:1;font-family:'IBM Plex Mono',monospace}
+  .stat .l{font-size:30px;color:var(--muted);margin-top:18px}
+
+  /* flow diagram */
+  .flow{display:flex;align-items:center;gap:0;margin:auto 0}
+  .flow .b{flex:1;background:var(--soft);border:3px solid var(--line);border-radius:24px;padding:44px 30px;text-align:center}
+  .flow .b b{display:block;font-size:40px;color:var(--green-deep);margin-bottom:14px}
+  .flow .b p{font-size:27px;color:var(--ink)}
+  .flow .a{font-size:70px;padding:0 26px;color:var(--green);font-weight:700}
+
+  /* layers stack */
+  .layer{border:4px solid var(--line);border-radius:26px;padding:38px 46px;margin-bottom:26px;background:#fff}
+  .layer b{font-size:44px;display:block}
+  .layer p{font-size:30px;color:var(--muted);margin-top:8px}
+  .l1{border-color:var(--green);background:var(--soft)}
+  .l1 b{color:var(--green-deep)}
+  .l2{border-color:var(--gold);background:#FBF6E8}
+  .l2 b{color:#8a6508}
+  .l3{border-color:#1A5FA8;background:#EDF2FC}
+  .l3 b{color:#1A5FA8}
+
+  /* ask */
+  .mega{font-size:190px;font-weight:700;color:var(--green-deep);letter-spacing:-.03em;line-height:1}
+  .askrow{display:flex;gap:70px;margin-top:60px}
+  .askrow .k{font-size:80px;font-weight:700;color:var(--green-deep)}
+  .askrow .l{font-size:30px;color:var(--muted);margin-top:8px}
+
+  .notes{display:none;font-size:26px;line-height:1.8;color:var(--ink);background:var(--gold-soft);border-radius:18px;padding:24px 30px;margin-top:36px}
+  #hud{position:fixed;bottom:16px;right:24px;color:#9aa39d;font-family:'IBM Plex Mono',monospace;font-size:16px;z-index:9}
+  @media print{
+    html,body{overflow:visible;background:#fff}
+    #stage{position:static}
+    #deck{width:auto;height:auto;box-shadow:none;transform:none !important}
+    .slide{position:relative;display:flex !important;page-break-after:always;width:1920px;height:1080px}
+    #hud{display:none}
+  }
+</style>
 </head>
-<body class="tpl-pitch-deck">
-<div class="deck">
+<body>
+<div id="stage"><div id="deck">
 
-  <!-- 1. COVER — C (Business) -->
-  <section class="slide" data-title="Cover">
-    <div class="cover-bg"></div>
-    <div class="cover-blob"></div>
-    <div style="position:absolute;top:56px;left:112px"><span class="brand-dot"></span><span class="brand">Watcation 🛕</span></div>
-    <span class="who-badge c">🎤 C · BUSINESS</span>
-    <p class="kicker">TED Fund · Ideation · 2569</p>
-    <h1 class="h1 anim-fade-up" data-anim="fade-up">Your AI agent talks<br>to the <span class="gradient-text">temple's</span>.</h1>
-    <p class="lede mt-m">แพลตฟอร์มนอนวัด — ที่ AI สองฝั่งเจรจากันเอง ให้นักท่องเที่ยวต่างชาติ ค้น เทียบ จอง และเตรียมตัว จบในบทสนทนาเดียว</p>
-    <aside class="notes">🎤 C (Business) เปิด: "เกาหลีมี Templestay 349,219 คนในปีเดียว — คนต่างชาติ 55,515 คน และเพียง 1 ใน 3 ที่เป็นชาวพุทธ" หยุด 1 จังหวะ → "ไทยคือต้นบ้านของสิ่งนี้ มีวัด 40,000 แห่ง แต่คนต่างชาติอยากพัก ติดที่ ภาษา มารยาท ข้อมูลกระจัดกระจาย และต้องเข้าก่อน 16:00 — เราจึงสร้าง AI Temple Concierge ที่ทำให้การนอนวัด จบในบทสนทนาเดียว"</aside>
-    <div class="deck-footer"><span>ทีม Watcation — Poom (Tech) · Snowyves (Business)</span><span class="slide-number" data-current="1" data-total="9"></span></div>
+  <!-- 1 COVER — C -->
+  <section class="slide is-active" data-title="Cover">
+    <span class="who c">🎤 C · BUSINESS</span>
+    <div style="margin:auto 0">
+      <div class="kick">TED FUND · IDEATION · ฿150,000</div>
+      <h1>WATCATION</h1>
+      <p class="big" style="margin-top:30px"><em style="font-style:normal;color:var(--green-deep);font-weight:700">Your AI agent talks to the temple's.</em></p>
+      <p class="dim" style="margin-top:26px">แพลตฟอร์มนอนวัด — AI สองฝั่งเจรจากันเอง<br>ค้น เทียบ จอง เตรียมตัว จบในบทสนทนาเดียว</p>
+    </div>
+    <div class="foot"><span>ทีม Watcation — Poom (Tech) · Snowyves (Business)</span><span>TED Fund · Ideation · 2569</span></div>
+    <aside class="notes">🎤 C เปิด: "เกาหลีมี Templestay 349,219 คน ในปีเดียว — คนต่างชาติ 55,515 คน และเพียง 1 ใน 3 ที่เป็นชาวพุทธ" หยุด 1 จังหวะ → "ไทยคือต้นบ้านของสิ่งนี้ วัด 40,000 แห่ง แต่คนต่างชาติอยากพัก ติดที่ ภาษา มารยาท ข้อมูลกระจัดกระจาย เข้าก่อน 16:00 — เราจึงสร้าง Watcation"</aside>
   </section>
 
-  <!-- 2. PROBLEM — C -->
+  <!-- 2 PROBLEM/MARKET — C -->
   <section class="slide" data-title="Problem">
-    <span class="who-badge c">🎤 C · BUSINESS</span>
-    <p class="num-tag">PROBLEM / MARKET</p>
-    <h2 class="h2 mt-s">เกาหลี 349,219 คน/ปี —<br>ไทยคือต้นบ้าน แต่ไม่มีระบบ</h2>
-    <div class="grid g3 mt-l">
-      <div class="card"><h4>40,000+ วัด</h4><p class="dim">ต้นบ้านของ temple stay — แต่ไม่มีระบบรวม ข้อมูลกระจัดกระจายทีละเว็บ</p></div>
-      <div class="card"><h4>กำแพงภาษา + มารยาท</h4><p class="dim">"You can't understand if the monk is teaching" — คำสอนส่วนใหญ่เป็นภาษาไทย</p></div>
-      <div class="card"><h4>Solo women 84%</h4><p class="dim">กลุ่มหลักที่ต้องการความปลอดภัย + โครงสร้าง ที่วัดให้ได้พอดี — แต่เข้าไม่ถึง</p></div>
+    <span class="who c">🎤 C · BUSINESS</span>
+    <div class="kick">PROBLEM / MARKET</div>
+    <h2>เกาหลี 349,219 คน/ปี<br>ไทยคือต้นบ้าน — <em>ไม่มีระบบ</em></h2>
+    <div class="stats">
+      <div class="stat"><div class="n">40,000+</div><div class="l">วัดไทย</div></div>
+      <div class="stat"><div class="n">84%</div><div class="l">ของ solo travelers เป็นผู้หญิง — กลุ่มที่ต้องการความปลอดภัย+โครงสร้าง</div></div>
+      <div class="stat"><div class="n">16:00</div><div class="l">เข้าหลังเวลานี้ = "มาวันหน้า" — ไม่มีใครช่วยจอง</div></div>
     </div>
-    <aside class="notes">🎤 C: ขยายตัวเลขเกาหลี (349,219 คน · 158 วัด · ต่างชาติ 55,515 · 1 ใน 3 ไม่ใช่ชาวพุทธ = ดีมานด์ secular) → จุดที่วัดไทยต้องแข่ง: ข้อมูลจาก TripAdvisor/Reddit จริง → ส่งไม้: "ทางแก้คือ AI Temple Concierge — ตอนนี้เขตของ Poom"</aside>
-    <div class="deck-footer"><span>แหล่ง: Korea Templestay 2025 · Grand View Research</span><span class="slide-number" data-current="2" data-total="9"></span></div>
+    <aside class="notes">🎤 C: เดินเรื่อง 3 ตัวเลขบนจอ → "ปัญหาไม่ใช่ไม่มีดีมานด์ แต่ไม่มีระบบ: ภาษา มารยาท ข้อมูลกระจัดกระจาย" → ส่งไม้: "ทางแก้ — ตอนนี้ฝั่งเทคคือ Poom"</aside>
   </section>
 
-  <!-- 3. SOLUTION — C -->
+  <!-- 3 SOLUTION — C -->
   <section class="slide" data-title="Solution">
-    <span class="who-badge c">🎤 C · BUSINESS</span>
-    <p class="num-tag">SOLUTION</p>
-    <h2 class="h2 mt-s">AI Temple Concierge —<br>จบใน <span class="gradient-text">บทสนทนาเดียว</span></h2>
-    <p class="lede mt-m">บอกความต้องการเป็นภาษาของคุณ → agent เจรจากับวัด → ได้การจองที่ตรวจสอบได้</p>
-    <div class="row mt-l">
-      <span class="pill pill-accent">ค้นหา</span>
-      <span class="pill pill-accent">เทียบวัด</span>
-      <span class="pill pill-accent">เช็คว่าง</span>
-      <span class="pill pill-accent">จอง + ข้อตกลง 2 ภาษา</span>
-      <span class="pill pill-accent">Itinerary รอบวัด</span>
+    <span class="who c">🎤 C · BUSINESS</span>
+    <div class="kick">SOLUTION</div>
+    <h2>จบใน <em>บทสนทนาเดียว</em></h2>
+    <p class="big" style="margin-bottom:40px">พูดภาษาตัวเอง → AI เจรจากับวัดให้ → ได้การจองที่ตรวจสอบได้</p>
+    <div class="flow">
+      <div class="b"><b>ค้นหา</b><p>บอกความต้องการ ทำเล/บรรยากาศ/จำนวนคืน</p></div>
+      <div class="b"><b>เทียบวัด</b><p>จัดอันดับพร้อมเหตุผล</p></div>
+      <div class="b"><b>จอง</b><p>ข้อตกลงพักสองภาษา</p></div>
+      <div class="b"><b>เตรียมตัว</b><p>itinerary + มารยาท</p></div>
     </div>
-    <aside class="notes">🎤 C: สรุป concept ให้กรรมการเข้าใจ 4 จุด: ค้น เทียบ จอง เตรียมตัว — จากนั้นส่งไม้: "ระบบนี้พิสูจน์แล้วว่าใช้ได้จริง — เขตของ Poom ครับ"</aside>
-    <div class="deck-footer"><span>Watcation</span><span class="slide-number" data-current="3" data-total="9"></span></div>
+    <aside class="notes">🎤 C: ย้ำว่าไม่ใช่แค่แปลภาษา — เป็นการเจรจาข้อมูลระหว่างสองฝั่งจนจบเป็น booking → ส่งไม้: "พิสูจน์ด้วยสถาปัตยกรรมจริง — ฝั่งเทคคือ Poom"</aside>
   </section>
 
-  <!-- 4. ARCHITECTURE — A -->
+  <!-- 4 ARCHITECTURE — A -->
   <section class="slide" data-title="Architecture">
-    <span class="who-badge a">🎤 A · TECH</span>
-    <p class="num-tag">ARCHITECTURE — AGENT-TO-AGENT</p>
-    <h2 class="h2 mt-s">Traveler Agent ⇄ Temple Agent<br><span class="gradient-text">เจรจากันเอง</span> — ผู้ใช้เห็นทุก hop</h2>
-    <div class="grid g3 mt-l">
-      <div class="card"><h4>Traveler Agent</h4><p class="dim">พูดภาษาผู้ใช้ (EN/中/日/TH) จับความต้องการ → ยิง structured tool call ไปที่วัด</p></div>
-      <div class="card"><h4>Temple Agent (RAG-only)</h4><p class="dim">ground กับ KB ของวัดนั้น — <b>ตอบเฉพาะข้อมูลจริง นอก KB ปฏิเสธทันที</b> ไม่เดาเรื่องศาสนา</p></div>
-      <div class="card"><h4>Conversation Log</h4><p class="dim">ผู้ใช้เห็นการเจรจาสองฝั่งสด ๆ — trust มาจากความโปร่งใส</p></div>
+    <span class="who a">🎤 A · TECH</span>
+    <div class="kick">ARCHITECTURE — AGENT-TO-AGENT</div>
+    <h2>Traveler Agent ⇄ Temple Agent<br>ผู้ใช้เห็นการเจรจา <em>ทุก hop</em></h2>
+    <div class="flow">
+      <div class="b"><b>👤 นักท่องเที่ยว</b><p>EN/中/日/TH</p></div>
+      <div class="a">⇄</div>
+      <div class="b"><b>🧳 Traveler Agent</b><p>จับ intent · ยิง tool call</p></div>
+      <div class="a">⇄</div>
+      <div class="b"><b>🛕 Temple Agent</b><p><b>RAG-only</b> — ตอบจาก KB วัดนั้น นอกขอบเขต = ปฏิเสธ</p></div>
+      <div class="a">→</div>
+      <div class="b"><b>✅ จองสำเร็จ</b><p>ข้อตกลง 2 ภาษา</p></div>
     </div>
-    <aside class="notes">🎤 A (Tech): เปิดด้วย "สถาปัตยกรรมหลักคือ Agent-to-Agent" → อธิบาย 3 กล่องสั้น ๆ → ย้ำ guardrail: "โมเดลถูกออกแบบให้ปฏิเสธเรื่องศาสนาถ้าไม่มีข้อมูลวัดรองรับ — เพราะการเดาเรื่องศาสนาคือความผิดพลาดที่แก้ไม่ได้" → ส่งไม้ไปหน้า receipts</aside>
-    <div class="deck-footer"><span>Astro + Cloudflare Workers + D1 + R2</span><span class="slide-number" data-current="4" data-total="9"></span></div>
+    <aside class="notes">🎤 A: อธิบาย flow 4 กล่อง → ย้ำ guardrail สำคัญสุด: "Temple Agent ถูกออกแบบให้ปฏิเสธเรื่องศาสนาถ้าไม่มีข้อมูลวัดรองรับ — เพราะการเดาเรื่องศาสนาคือความผิดพลาดที่แก้ไม่ได้" → "และเราไม่พูดเปล่า — มีข้อสอบ"</aside>
   </section>
 
-  <!-- 5. RECEIPTS — A -->
+  <!-- 5 RECEIPTS — A -->
   <section class="slide" data-title="Receipts">
-    <span class="who-badge a">🎤 A · TECH</span>
-    <p class="num-tag">RECEIPTS — พิสูจน์ด้วยตัวเลข</p>
-    <h2 class="h2 mt-s">POC ใช้งานได้จริง — และมีข้อสอบ</h2>
-    <div class="grid g3 mt-l">
-      <div class="card metric"><div class="big">4/4</div><p class="dim">E2E tests — ครบ flow จริง</p></div>
-      <div class="card metric"><div class="big">17/17</div><p class="dim">Agent evals — คุณภาพคำตอบ</p></div>
-      <div class="card metric"><div class="big">10/10</div><p class="dim">Guardrail — ปฏิเสธนอก KB ถูกต้อง</p></div>
+    <span class="who a">🎤 A · TECH</span>
+    <div class="kick">RECEIPTS — POC ใช้งานได้จริง วัด 5 วัด</div>
+    <h2>พิสูจน์ด้วย <em>ตัวเลข</em> ไม่ใช่คำโม้</h2>
+    <div class="stats">
+      <div class="stat"><div class="n">4/4</div><div class="l">E2E tests — flow จริงครบ</div></div>
+      <div class="stat"><div class="n">17/17</div><div class="l">Agent evals — คุณภาพคำตอบ</div></div>
+      <div class="stat"><div class="n">10/10</div><div class="l">Guardrail — ปฏิเสธนอก KB ถูกต้อง</div></div>
     </div>
-    <p class="lede mt-m">วัด 5 วัดข้อมูลจริงในระบบ · บูธ expo จริงกับ DomeCloud · ทีมติดต่อ community Qwen/Alibaba Thailand</p>
-    <aside class="notes">🎤 A: ชี้ตัวเลข 3 ตัว → เล่าว่า guardrail test คืออะไร (ให้ agent คำถามนอก KB แล้วมันต้องปฏิเสธ — ผ่าน 10/10) → ส่งไม้: "เครื่องยนต์พร้อมแล้ว — คำถามถัดไปคือคุ้มไหม ตอนนี้ฝั่งการเงินคือ B"</aside>
-    <div class="deck-footer"><span>Watcation</span><span class="slide-number" data-current="5" data-total="9"></span></div>
+    <p class="dim" style="margin-top:44px">แพลตฟอร์มจริง: Astro + Cloudflare Workers + D1 — และเริ่มมีพันธมิตรจริง: DomeCloud (AI gateway · inference · governance) + Qwen ecosystem Thailand</p>
+    <aside class="notes">🎤 A: ชี้ตัวเลขทีละตัว → อธิบาย guardrail test สั้นๆ (ให้ agent คำถามนอก KB แล้วมันต้องปฏิเสธ) → ส่งไม้: "เครื่องยนต์พร้อม — คำถามถัดไป: คุ้มไหม → ฝั่งการเงิน B"</aside>
   </section>
 
-  <!-- 6. BUSINESS — B -->
+  <!-- 6 BUSINESS — B -->
   <section class="slide" data-title="Business Model">
-    <span class="who-badge b">🎤 B · FINANCE</span>
-    <p class="num-tag">BUSINESS MODEL</p>
-    <h2 class="h2 mt-s">ไม่เช่าวัด — ขาย<b>แพ็กเกจประสบการณ์</b></h2>
-    <div class="grid g3 mt-l">
-      <div class="card metric"><div class="big">≥70%</div><p class="dim">รายได้/บริจาคถึงวัด — โปร่งใส</p></div>
-      <div class="card metric"><div class="big">20–30%</div><p class="dim">platform margin (OTA ทั่วไปหัก 20–40%)</p></div>
-      <div class="card"><h4>B-side คุณค่า</h4><p class="dim">ส่งแขกที่ "มาถูกเตรียม" — รู้ตาราง รู้มารยาท ก่อนถึงวัด (แก้ pain ที่พระเหนื่อยอยู่แล้ว)</p></div>
+    <span class="who b">🎤 B · FINANCE</span>
+    <div class="kick">BUSINESS MODEL</div>
+    <h2>ไม่เช่าวัด — ขายแพ็กเกจประสบการณ์</h2>
+    <div class="stats">
+      <div class="stat"><div class="n">≥70%</div><div class="l">รายได้/บริจาคถึงวัด — โปร่งใส</div></div>
+      <div class="stat"><div class="n">20–30%</div><div class="l">platform margin (OTA ทั่วไปหัก 20–40%)</div></div>
+      <div class="stat"><div class="l" style="font-size:26px;color:var(--ink);font-weight:600">B-side คุณค่า</div><div class="l">ส่งแขกที่ "มาถูกเตรียม" — รู้ตาราง มารยาท ก่อนถึงวัด</div></div>
     </div>
-    <aside class="notes">🎤 B (Finance): อธิบายโมเดล — ขายแพ็กเกจประสบการณ์ ไม่ใช่ค่าเช่าวัด → โปร่งใส ≥70% ถึงวัด → margin 20-30% เทียบ OTA → ปิดว่าคุณค่าฝั่งวัดคือแขกที่ถูกเตรียมมาแล้ว</aside>
-    <div class="deck-footer"><span>Watcation</span><span class="slide-number" data-current="6" data-total="9"></span></div>
+    <aside class="notes">🎤 B: โมเดล = แพ็กเกจประสบการณ์ ไม่ใช่ค่าเช่าวัด → โปร่งใส ≥70% → margin 20-30% เทียบ OTA → B-side: วัดได้แขกที่ถูกเตรียมมาแล้ว → ส่งไม้ไป roadmap</aside>
   </section>
 
-  <!-- 7. ROADMAP — B -->
+  <!-- 7 ROADMAP — B -->
   <section class="slide" data-title="Roadmap">
-    <span class="who-badge b">🎤 B · FINANCE</span>
-    <p class="num-tag">ROADMAP — BANGKOK FIRST</p>
-    <h2 class="h2 mt-s">ยึด กทม. ให้แน่น แล้วขยายทั้งประเทศ</h2>
-    <div class="grid g2 mt-l">
-      <div class="card"><h4>Stage 1 · กทม. ครบโซน (ด.1–4)</h4><p class="dim">เกาะรัตนโกสินทร์ ✅ วัดราชนาดูร · ฝั่งธนบุรี · เยาวราช · สุขุมวิท · หนองจอก ✅ วัดประยุรวัตนาราม → เปิดจองจริง เป้า 100 bookings</p></div>
-      <div class="card"><h4>Stage 2 · ทั่วประเทศ (ด.4–6)</h4><p class="dim">เชียงใหม่ · แม่ฮ่องสอน · อุบลฯ · ปาย · ภูเก็ต · สุราษฎร์ → 10+ วัด · 300+ bookings · จดทะเบียนนิติบุคคล</p></div>
+    <span class="who b">🎤 B · FINANCE</span>
+    <div class="kick">ROADMAP — BANGKOK FIRST</div>
+    <h2>ยึด กทม. ให้แน่น → ขยายทั้งประเทศ</h2>
+    <div class="stats">
+      <div class="stat"><div class="n">5</div><div class="l">โซนหลักของ กทม. ครบ (ด.1–4) — ✅ วัดราชนาดูร · วัดประยุรวัตนาราม</div></div>
+      <div class="stat"><div class="n">100</div><div class="l">bookings แรก (ด.3–4) + รีวิวจริง 10–20 ราย</div></div>
+      <div class="stat"><div class="n">10+</div><div class="l">วัด · 300+ bookings · จดทะเบียนนิติบุคคล (ด.5–6)</div></div>
     </div>
-    <aside class="notes">🎤 B: เน้น Bangkok-first strategy (38 ล้านนักท่องเที่ยวเข้าผ่านกรุงเทพฯ = touchpoint แรก) → ส่งไม้: "และตัวเลขทั้งหมดนี้ เริ่มได้ด้วยเงิน 150,000 บาท — และวิสัยทัศน์ของเราไม่จบที่วัด"</aside>
-    <div class="deck-footer"><span>Watcation</span><span class="slide-number" data-current="7" data-total="9"></span></div>
+    <aside class="notes">🎤 B: Bangkok-first = 38 ล้านนักท่องเที่ยวเข้าผ่านกรุงเทพฯ → ส่งไม้: "ทั้งหมดนี้เริ่มได้ด้วยเงิน 150,000 บาท — และวิสัยทัศน์ไม่จบที่วัด"</aside>
   </section>
 
-  <!-- 8. VISION + PARTNERS — B -->
+  <!-- 8 VISION — B -->
   <section class="slide" data-title="Vision & Partners">
-    <span class="who-badge b">🎤 B · FINANCE</span>
-    <p class="num-tag">VISION — วัดคือ vertical แรก ไม่ใช่เส้นชัย</p>
-    <h2 class="h2 mt-s">เครื่องยนต์เดียวกัน — องค์กรไทยทุกแบบ</h2>
-    <div class="grid g3 mt-l">
-      <div class="card"><h4>✅ วัด (กำลังทำ)</h4><p class="dim">Soft power ตามแผนชาติ 10 ปี</p></div>
-      <div class="card"><h4>พิพิธภัณฑ์ / มรดก</h4><p class="dim">ปัญหาข้อมูลกระจัดกระจายเหมือนกัน</p></div>
-      <div class="card"><h4>หน่วยงานราชการ / กลาโหม</h4><p class="dim">AI ที่ ground กับข้อมูลจริง — ไม่เดา</p></div>
-    </div>
-    <div class="grid g2 mt-l">
-      <div class="card partner"><img src="assets/img/domecloud-expo.jpg" alt="DomeCloud"><p class="dim mt-s"><b>DomeCloud</b> — AI gateway · local model inference · AI governance</p></div>
-      <div class="card partner"><img src="assets/img/qwen-community-meetup.jpg" alt="Qwen / Alibaba ecosystem"><p class="dim mt-s"><b>Qwen Ambassador Thailand</b> — ecosystem Alibaba / open-weight</p></div>
-    </div>
-    <aside class="notes">🎤 B (VISION LINE — พูดถ้าเวลาพอ หรือใช้ตอบคำถาม): "ธุรกิจนี้ยืนอยู่บน inference ของคนอื่นวันนี้ — เป้าหมายของเราคือเติบโตไปเป็นชั้น inference ของประเทศ: โมเดล open-weight บนโครงสร้างพื้นฐานไทย ที่รัฐซื้อได้อย่างมั่นใจ ข้อมูลอยู่ไทย กฎหมายไทย ตรวจสอบได้ — และเราไม่ได้เริ่มจากศูนย์: DomeCloud เป็นพันธมิตรด้าน AI gateway/inference/governance แล้ว บวกสถานะ Qwen Ambassador Thailand" → ส่งไม้กลับให้ C ปิดการขอทุน</aside>
-    <div class="deck-footer"><span>DomeCloud · Qwen Ambassador Thailand</span><span class="slide-number" data-current="8" data-total="9"></span></div>
+    <span class="who b">🎤 B · FINANCE</span>
+    <div class="kick">VISION — วัดคือหลักฐานแรก ไม่ใช่เส้นชัย</div>
+    <h2>เครื่องยนต์เดียวกัน<br>สำหรับ <em>องค์กรไทยทุกแบบ</em></h2>
+    <div class="layer l1"><b>✅ วัด (นอนวัด) — พิสูจน์แล้ว</b><p>Soft power · ตลาดที่ pain ชัดสุด</p></div>
+    <div class="layer l2"><b>🔶 Local model inference — DomeCloud + Qwen Thailand</b><p>AI gateway · open-weight บน infra ไทย · AI governance</p></div>
+    <div class="layer l3"><b>ระบบเฉพาะองค์กร — พิพิธภัณฑ์ · ราชการ · กลาโหม</b><p>AI ที่ ground กับข้อมูลจริง — ไม่เดา ไม่หลุดประเทศ</p></div>
+    <aside class="notes">🎤 B VISION LINE: "ธุรกิจนี้ยืนอยู่บน inference ของคนอื่นวันนี้ — เป้าหมายคือชั้น inference ของประเทศ: open-weight บน infra ไทย รัฐซื้อได้อย่างมั่นใจ ข้อมูลอยู่ไทย กฎหมายไทย ตรวจสอบได้ — AI Act ที่กำลังมาจะเปลี่ยนจากทางเลือกเป็นความจำเป็น · เราไม่ได้เริ่มจากศูนย์: DomeCloud + Qwen Ambassador Thailand" → ส่งกลับ C ปิด</aside>
   </section>
 
-  <!-- 9. THE ASK — C -->
+  <!-- 9 ASK — C -->
   <section class="slide" data-title="The Ask">
-    <span class="who-badge c">🎤 C · BUSINESS</span>
-    <p class="num-tag">THE ASK</p>
-    <div class="ask-box mt-m">
-      <h2 class="h2">ขอทุน ฿150,000 — Ideation</h2>
-      <p class="lede" style="max-width:64ch">ต่อยอด POC → pilot วัด 3–5 วัดในกรุงเทพฯ ครบโซน → เปิดจองจริง 100 bookings → วัดรวม 10+ วัดภายใน 6 เดือน พร้อมจดทะเบียนนิติบุคคล (IP ทีม 100%)</p>
-      <div class="row mt-l" style="gap:40px">
-        <div><div style="font-size:44px;font-weight:900">฿150k</div><div class="dim">TED Fund · Ideation</div></div>
-        <div><div style="font-size:44px;font-weight:900">6 เดือน</div><div class="dim">pilot → 10+ วัด</div></div>
-        <div><div style="font-size:44px;font-weight:900">100→300</div><div class="dim">bookings</div></div>
-      </div>
+    <span class="who c">🎤 C · BUSINESS</span>
+    <div class="kick">THE ASK</div>
+    <div class="mega">฿150,000</div>
+    <div class="askrow">
+      <div><div class="k">6 เดือน</div><div class="l">pilot วัด 3–5 วัด กทม. ครบโซน</div></div>
+      <div><div class="k">100→300</div><div class="l">bookings · 10+ วัด · จดทะเบียน</div></div>
     </div>
-    <aside class="notes">🎤 C ปิด: "วัดคือหลักฐานแรก ไม่ใช่เส้นชัย — เครื่องยนต์เดียวกันไปพิพิธภัณฑ์ หน่วยงานราชการ ทุกองค์กรไทย ขอทุน 150,000 บาท เพื่อพิสูจน์ว่า AI ของไทย เปิดประตูวัดไทยให้คนทั้งโลก — Your AI agent talks to the temple's." จบ — อย่าเพิ่มคำอื่น</aside>
-    <div class="deck-footer"><span>Watcation 🛕 — Your AI agent talks to the temple's.</span><span class="slide-number" data-current="9" data-total="9"></span></div>
+    <p class="big" style="margin-top:70px">จบด้วย tagline — <em style="font-style:normal;color:var(--green-deep);font-weight:700">"Your AI agent talks to the temple's."</em></p>
+    <aside class="notes">🎤 C ปิด: "วัดคือหลักฐานแรก ไม่ใช่เส้นชัย — เครื่องยนต์เดียวกันไปพิพิธภัณฑ์ หน่วยงานราชการ ทุกองค์กรไทย ขอทุน 150,000 บาท เพื่อพิสูจน์ว่า AI ของไทย เปิดประตูวัดไทยให้คนทั้งโลก — Your AI agent talks to the temple's." จบ ไม่เพิ่มคำอื่น</aside>
   </section>
 
-</div>
+</div></div>
+<div id="hud">← → · S = presenter · 1/9</div>
 <script src="assets/runtime.js"></script>
+<script>
+  // scale deck to viewport
+  function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);document.getElementById('deck').style.transform='scale('+s+')'}
+  addEventListener('resize',fit);fit();
+  // HUD counter syncs with runtime's is-active
+  const hud=document.getElementById('hud');
+  setInterval(()=>{
+    const slides=[...document.querySelectorAll('.slide')];
+    const i=slides.findIndex(s=>s.classList.contains('is-active'));
+    if(i>=0) hud.textContent='← → · S = presenter · '+(i+1)+'/'+slides.length;
+  },300);
+</script>
 </body></html>
