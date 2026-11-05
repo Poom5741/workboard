@@ -243,7 +243,7 @@
   // HUD counter syncs with runtime's is-active (runtime.js handles nav, fit, presenter)
   const hud=document.getElementById('hud');
   setInterval(()=>{
-    const slides=[...document.querySelectorAll('.slide')];
+    const slides=[...document.querySelectorAll('#deck > .slide')];
     const i=slides.findIndex(s=>s.classList.contains('is-active'));
     if(i>=0) hud.textContent='← → · S = presenter · '+(i+1)+'/'+slides.length;
   },300);
