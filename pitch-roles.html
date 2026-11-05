@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pitch 5 นาที — แบ่งบทพูด 3 คน</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FAF8F4;--ink:#1A1917;--muted:#6E6A63;--line:#D8D3C8;--accent:#0B7A55;--accent-ink:#085A3F;--gold:#B8860B}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans Thai',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7}
+.wrap{max-width:900px;margin:0 auto;padding:40px 20px 60px}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:42px;letter-spacing:-.015em;margin:10px 0 8px}
+.sub{font-size:19px;color:var(--muted);margin-bottom:36px}
+.back{display:inline-block;margin-bottom:20px;font-size:15px}
+.person{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 30px;margin-bottom:22px;border-top-width:8px;border-top-style:solid}
+.person.c{border-top-color:#B8860B}
+.person.a{border-top-color:#0B7A55}
+.person.b{border-top-color:#1A5FA8}
+.who{display:flex;align-items:baseline;gap:14px;margin-bottom:12px}
+.who .letter{font-family:'IBM Plex Mono',monospace;font-size:40px;font-weight:700}
+.person.c .letter{color:#B8860B}.person.a .letter{color:#0B7A55}.person.b .letter{color:#1A5FA8}
+.who h2{font-size:26px}
+.who .time{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:var(--accent-ink)}
+.say{background:#12211B;color:#D7F0E3;border-radius:12px;padding:18px 22px;font-size:17px;margin:14px 0}
+.say .th{color:#fff}.say .cue{color:#7FB89D;font-size:14px;display:block;margin-top:8px}
+.handoff{font-size:16px;color:var(--accent-ink);font-weight:600}
+ul{margin:10px 0 4px 24px}
+li{margin-bottom:8px;font-size:16px}
+b.n{color:var(--accent-ink)}
+.rules{background:var(--accent);color:#fff;border-radius:16px;padding:26px 30px;margin-top:30px}
+.rules h2{border:none;color:#fff;font-size:24px;margin-bottom:16px}
+.rules li{margin-bottom:10px;font-size:17px}
+footer{margin-top:36px;color:var(--muted);font-size:14px}
+footer a{color:var(--accent-ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="back"><a href="index.html">← กลับ workboard</a></div>
+<div class="kicker">WATCATION · PITCH 5 นาที · TED FUND</div>
+<h1>แบ่งบทพูด 3 คน — จำง่าย พูดมั่น</h1>
+<p class="sub">หลักเดียว: เปิดด้วยปัญหา → กลางพิสูจน์ด้วยของจริง → ปิดด้วยเลขและการขอทุน · <b>ให้คนเดียวจบ</b> (การขอทุนห้ามข้ามคนพูด)</p>
+
+<div class="person c">
+  <div class="who"><span class="letter">C</span><h2>Business — เปิดและปิด</h2><span class="time">0:00–1:15 → 4:30–5:00</span></div>
+  <div class="say">
+    <span class="th">"เกาหลีมี Templestay 349,219 คน ในปีเดียว — คนต่างชาติ 55,515 คน และเพียง 1 ใน 3 ที่เป็นชาวพุทธ"</span>
+    <span class="cue">→ หยุด 1 จังหวะ ให้เลขอยู่ในหัวกรรมการก่อน</span>
+    <span class="th">"ไทยคือต้นบ้านของสิ่งนี้ — มีวัด 40,000 แห่ง แต่คนต่างชาติอยากพัก ติดที่ ภาษา มารยาท ข้อมูลกระจัดกระจาย และต้องเข้าก่อน 16:00"</span>
+    <span class="th">"เราจึงสร้าง AI Temple Concierge — ที่ทำให้การนอนวัด จบในบทสนทนาเดียว"</span>
+  </div>
+  <div class="handoff">ส่งไม้: "มันทำงานยังไง — ฝั่งเทคคือ Poom" → เหลือบมอง A แล้วกลับมายืนตำแหน่งเดิม</div>
+</div>
+
+<div class="person a">
+  <div class="who"><span class="letter">A</span><h2>Tech — พิสูจน์ด้วยของจริง</h2><span class="time">1:15–3:15</span></div>
+  <div class="say">
+    <span class="th">"สถาปัตยกรรมของเรา: Traveler Agent ของผู้ใช้ คุยกับ Temple Agent ของวัดโดยตรง"</span>
+    <span class="cue">→ โชว์ conversation log 30 วิ (ภาพนิ่งบนสไลด์ — ไม่ live, พังไม่ได้)</span>
+    <span class="th">"จุดสำคัญ: Temple Agent ตอบ<b>เฉพาะจาก KB ของวัดนั้น</b> — ถ้าไม่มีข้อมูล มันปฏิเสธ ไม่เดาเรื่องศาสนาเด็ดขาด"</span>
+    <span class="th">"และเราไม่พูดเปล่า — E2E test ผ่าน 4 จาก 4 · agent evals 17 จาก 17 · RAG guardrail ปฏิเสธนอกขอบเขต 10 จาก 10"</span>
+  </div>
+  <div class="handoff">ส่งไม้: "เครื่องยนต์พร้อมแล้ว — แต่คำถามต่อไปคือ 'คุ้มไหม' — ฝั่งการเงินคือ B"</div>
+</div>
+
+<div class="person b">
+  <div class="who"><span class="letter">B</span><h2>Finance — เลขและเส้นทาง</h2><span class="time">3:15–4:30</span></div>
+  <div class="say">
+    <span class="th">"เราไม่เช่าวัด — เราขายแพ็กเกจประสบการณ์คัดสรร"</span>
+    <span class="th">"โครงสร้างโปร่งใส: วัดได้ส่วนแบ่ง <b>≥70%</b> · platform margin <b>20–30%</b>"</span>
+    <span class="th">"เส้นทาง: กรุงเทพฯ ครบทุกโซน → เปิดจองจริงเป้า 100 bookings → ขยาย 10+ วัด ต่างจังหวัด → จดทะเบียนนิติบุคคล"</span>
+  </div>
+  <div class="handoff">ส่งไม้: "ทั้งหมดนี้เริ่มได้ด้วยเงิน 150,000 บาท — กลับมาที่ C เพื่อสรุป"</div>
+</div>
+
+<div class="person c">
+  <div class="who"><span class="letter">C</span><h2>Business — กลับมาปิด</h2><span class="time">4:30–5:00</span></div>
+  <div class="say">
+    <span class="th">"วัดคือ<b>หลักฐานแรก</b> ไม่ใช่เส้นชัย — เครื่องยนต์เดียวกันไปพิพิธภัณฑ์ หน่วยงานราชการ ทุกองค์กรไทย"</span>
+    <span class="th">"ขอทุน 150,000 บาท — เพื่อพิสูจน์ว่า AI ของไทย เปิดประตูวัดไทยให้คนทั้งโลก"</span>
+    <span class="th">จบด้วย tagline: <b>"Your AI agent talks to the temple's."</b></span>
+  </div>
+</div>
+
+<div class="rules">
+  <h2>กติกา 4 ข้อ (ซ้อม 3 รอบขึ้นไป)</h2>
+  <ul>
+    <li><b>1. ส่งไม้สั้น</b> — ประโยคส่งพูด 1 จังหวะแล้วหยุด จุดแตกบ่อยสุดคือ handoff จาก A ไป B — ซ้อมจุดนี้เป็นพิเศษ</li>
+    <li><b>2. ตัวเลขอยู่กับเจ้าของมัน</b> — C พูดแต่เลขตลาด · A พูดแต่ receipt · B พูดแต่เลขเงิน — ห้ามคนอื่นพูดซ้ำ</li>
+    <li><b>3. เผื่อพัง</b> — demo/log โหลดไม่ขึ้น → A ข้ามไปภาพนิ่งในสไลด์เดียวกันทันที <b>ไม่ขอโทษกรรมการ</b></li>
+    <li><b>4. ช่วงถาม-ตอบแบ่งด้าน</b> — คำถามเงิน/ทุน → B · เทคนิค → A · วัด/ความสัมพันธ์ → C — อย่าให้ทุกคนตอบทุกคำถาม (ดูไม่มีเจ้าของงาน)</li>
+  </ul>
+</div>
+
+<footer>Watcation internal · ซอฟต์ก๊อปจากแผน pitch · ลิงก์สไลด์: <a href="deck-watcation-tagcloud.html">tag cloud</a> · <a href="index.html">workboard</a></footer>
+</div>
+</body>
+</html>
