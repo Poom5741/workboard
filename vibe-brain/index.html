@@ -21,6 +21,10 @@
   .card h3 { font-size:22px; margin-bottom:8px; }
   .card p, li { font-size:17px; color:#444; }
   ul { padding-left:20px; }
+  .term { background:#0D1117; color:#C9D1D9; border-radius:16px; padding:24px; font-family:ui-monospace,Consolas,monospace; font-size:14.5px; line-height:1.8; overflow-x:auto; }
+  .term .ok { color:#3FB950; font-weight:700; }
+  .term .err { color:#F85149; font-weight:700; }
+  .term .dim { color:#8B949E; }
   .proof { background:#F2FAF6; border:1px solid var(--green); border-radius:16px; padding:24px; margin-top:20px; }
   .proof b { color:var(--green); }
   .price { font-size:28px; font-weight:800; color:var(--gold); }
@@ -51,6 +55,24 @@
     <b>หลักฐานว่าสมองนี้ทำงานได้จริง:</b> สร้าง LeadDesk CRM (API + kanban UI) ด้วย workflow เดียวกัน —
     tests ผ่าน 8/8 · live API verified · ทุกงานจบด้วย receipts ที่ตรวจสอบได้
     (ดู repo จริง: <a href="https://github.com/Poom5741/vibe-coding-for-pm" style="color:var(--green)">vibe-coding-for-pm</a>)
+  </div>
+  <h2 style="margin-top:40px">ดูสมองทำงานสด — task ล่าสุด (ไม่ใช่ mock-up)</h2>
+  <p style="font-size:17px;color:#555">Task: "เพิ่ม endpoint ดึง lead รายตัว" — นี่คือ output จริงทั้งหมด ตรวจย้อนได้ที่ repo</p>
+  <div class="term">
+<span class="dim">$ สมองรับ task → grilling → spec (3 acceptance criteria)</span><br>
+<span class="dim">$ เขียน tests ก่อนโค้ด (tests-first):</span><br>
+<span class="err">FAIL  AC7 get single lead > GET by id returns 200</span><br>
+<span class="err">FAIL  AC7 get single lead > GET unknown id returns 404</span><br>
+<span class="dim">Test Files  1 failed — Tests 2 failed | 6 passed</span><br>
+<span class="dim">$ จุดเริ่มถูกต้อง (red = not done) → implement endpoint</span><br>
+<span class="ok">PASS  AC7 get single lead > GET by id returns 200</span><br>
+<span class="ok">PASS  AC7 get single lead > GET unknown id returns 404</span><br>
+<span class="ok">Test Files  1 passed — Tests 8 passed (8)  1.14s</span><br>
+<span class="dim">$ commit 4d8c7eb → pushed → receipts ครบ 3/3 criteria</span>
+  </div>
+  <p style="font-size:15px;color:#888;margin-top:8px">ตรวจสอบย้อนหลัง: <a href="https://github.com/Poom5741/vibe-coding-for-pm/commit/4d8c7eb" style="color:var(--green)">commit 4d8c7eb</a> · ทุกงานของสมองจบด้วยหลักฐานแบบนี้เสมอ</p>
+  <div class="proof" style="margin-top:28px">
+    <b>🔬 แขนงวิจัยของเรา:</b> นอกจากนี้เรามีแล็บที่ใช้ <b>ระบบประสาทจริง 2,400 เซลล์ + synapse จริง 187,000 จุด</b> จาก connectome สมองแมลงวัน (FlyWire) ศึกษาว่า "ความรู้สึก" ในสังคม AI แพร่กระจายอย่างไร — ดูแล็บเปิดเผยได้ที่ <a href="https://github.com/Poom5741/MiroFly" style="color:var(--green)">MiroFly</a> (ทางเราไม่แต่งเรื่อง feeling — เราวัดจากระบบประสาทจริง)
   </div>
 </section>
 
