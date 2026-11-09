@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Brain — สมอง AI สาย dev ติดตั้งถึงทีมคุณ</title>
+<style>
+  :root { --green:#0B7A55; --gold:#B8860B; --ink:#141A17; --bg:#FBFAF7; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Sarabun','Noto Sans Thai',system-ui,sans-serif; color:var(--ink); background:var(--bg); line-height:1.7; }
+  .wrap { max-width:980px; margin:0 auto; padding:24px; }
+  header { text-align:center; padding:72px 0 48px; }
+  h1 { font-size:56px; line-height:1.25; color:var(--green); font-weight:800; }
+  .tag { font-size:26px; color:#555; margin-top:16px; }
+  .cta { display:inline-block; background:var(--green); color:#fff; text-decoration:none; font-size:24px; font-weight:700; padding:18px 48px; border-radius:14px; margin-top:32px; }
+  .cta:hover { filter:brightness(1.1); }
+  section { padding:48px 0; border-top:1px solid #E4E0D5; }
+  h2 { font-size:34px; color:var(--green); margin-bottom:24px; font-weight:800; }
+  .cols { display:flex; flex-wrap:wrap; gap:20px; }
+  .card { flex:1 1 260px; background:#fff; border:1px solid #E4E0D5; border-radius:16px; padding:24px; }
+  .card h3 { font-size:22px; margin-bottom:8px; }
+  .card p, li { font-size:17px; color:#444; }
+  ul { padding-left:20px; }
+  .proof { background:#F2FAF6; border:1px solid var(--green); border-radius:16px; padding:24px; margin-top:20px; }
+  .proof b { color:var(--green); }
+  .price { font-size:28px; font-weight:800; color:var(--gold); }
+  .per { font-size:15px; color:#777; }
+  .tiers .card h3 { color:var(--green); }
+  footer { text-align:center; padding:40px 0 64px; color:#888; font-size:15px; }
+  .contact { display:inline-block; margin-top:12px; font-size:20px; }
+  @media (max-width:640px){ h1{font-size:36px} .tag{font-size:20px} h2{font-size:26px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Vibe Brain</h1>
+  <p class="tag">สมอง AI สาย dev ที่มีวินัย ติดตั้งให้ทีมคุณโดยทีมช่างติดตั้ง (FDE) — <b>ไม่ต้องจ้าง dev</b></p>
+  <a class="cta" href="#จอง">จอง pilot 3 ที่นั่งแรก</a>
+</header>
+
+<section>
+  <h2>ทีมคุณได้อะไร</h2>
+  <div class="cols">
+    <div class="card"><h3>🧠 สมองที่มีวินัย</h3><p>เขียน spec ก่อนโค้ดเสมอ · ทุกงานมี test · ทุกคำตอบมีที่มา — ไม่ใช่ chatbot ที่พูดลอย</p></div>
+    <div class="card"><h3>⚙️ ลงมือได้จริง</h3><p>อ่าน/แก้ repo · เขียน PR · รัน test · deploy — ต่อเข้ากับ workflow ของทีมคุณภายใน 5 วัน</p></div>
+    <div class="card"><h3>🛠️ มีช่างติดตั้ง (FDE)</h3><p>ไม่ใช่ซอฟต์แวร์ที่ให้เอาไปลองเอง — เราติดตั้ง ตั้งค่า และดูแลให้ถึงที่ พร้อมสอนทีมใช้</p></div>
+  </div>
+  <div class="proof">
+    <b>หลักฐานว่าสมองนี้ทำงานได้จริง:</b> สร้าง LeadDesk CRM (API + kanban UI) ด้วย workflow เดียวกัน —
+    tests ผ่าน 8/8 · live API verified · ทุกงานจบด้วย receipts ที่ตรวจสอบได้
+    (ดู repo จริง: <a href="https://github.com/Poom5741/vibe-coding-for-pm" style="color:var(--green)">vibe-coding-for-pm</a>)
+  </div>
+</section>
+
+<section class="tiers">
+  <h2>ราคา (เปิดตัว)</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>🚀 Pilot — 3 ที่นั่งแรก</h3>
+      <p class="price">฿49,000</p><p class="per">ตั้งค่าครั้งเดียว + ฿25,000/เดือน ×3</p>
+      <ul><li>สมองสาย dev พร้อมวินัย vibe coding</li><li>FDE ติดตั้ง 5 วัน</li><li>ปรับใช้กับงานจริง 1 งาน</li></ul>
+    </div>
+    <div class="card">
+      <h3>💼 Standard</h3>
+      <p class="price">฿99,000</p><p class="per">ตั้งค่าครั้งเดียว + ฿49,000/เดือน</p>
+      <ul><li>โมเดลตามงบของคุณ (เปลี่ยนได้)</li><li>FDE retainer 12 ชม./เดือน</li><li>deployment + ดูแลต่อเนื่อง</li></ul>
+    </div>
+    <div class="card">
+      <h3>🏢 Enterprise</h3>
+      <p class="price">เจรจา</p><p class="per">เริ่มต้น setup ฿150,000</p>
+      <ul><li>หลายทีม / หลาย workflow</li><li>SLA + ทีม FDE เต็มรูปแบบ</li></ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>เทียบกับทางเลือก</h2>
+  <div class="cols">
+    <div class="card"><h3>จ้าง agency</h3><p>฿100k–300k ต่อโครงการ แล้วจบ — แก้ของเพิ่ม = จ่ายเพิ่ม ของไม่เป็นของคุณเต็ม ๆ</p></div>
+    <div class="card"><h3>จ้าง dev ประจำ</h3><p>฿40k–80k/เดือน ยังไม่รวมบริหารจัดการ</p></div>
+    <div class="card"><h3>Vibe Brain</h3><p><b>ต้นทุนต่อเดือนใกล้เคียง dev 1 คน แต่ได้ 3 อย่าง:</b> สมองทำงานต่อเนื่อง · วินัยตรวจสอบได้ · ของเป็นของคุณ</p></div>
+  </div>
+</section>
+
+<section id="จอง">
+  <h2>จอง pilot</h2>
+  <p style="font-size:19px">พิมพ์คำว่า <b>"สนใจ Vibe Brain"</b> พร้อมชื่อทีม/บริษัท ส่งมาที่ช่องทางด้านล่าง — เราติดต่อกลับภายใน 1 วันทำงาน</p>
+  <span class="contact">✉️ GitHub: <a href="https://github.com/Poom5741" style="color:var(--green)">@Poom5741</a></span>
+</section>
+
+<footer>Vibe Brain · Brain Platform by Poom — สมอง 3 ชั้น: AI Model · Skill · Harness<br>หลักการ: Spec before code · Receipts over vibes · Visible outcome</footer>
+
+</div>
+</body>
+</html>
